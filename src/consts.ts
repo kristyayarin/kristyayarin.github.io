@@ -1,3 +1,7 @@
+import instagramIcon from "./assets/icons/instagram.svg";
+import linkedinIcon from "./assets/icons/linkedin.svg";
+import githubIcon from "./assets/icons/github.svg";
+
 export const FooterLinks = [
     { href: "/posts/core-concepts-concepts-why-astro/", title: "Astro" },
     { href: "/posts/assets-guides-styling/", title: "Styling" },
@@ -5,20 +9,19 @@ export const FooterLinks = [
   ];
 
 export const SocialLinks = [
-{ href: "/rss.xml", icon: "icon-[tabler--rss]", label: "RSS" },
 {
     href: "https://www.instagram.com/ayakristyart/",
-    icon: "icon-[tabler--brand-instagram]",
+    icon: instagramIcon,
     label: "Instagram",
 },
 {
     href: "https://www.linkedin.com/in/kristy-xuan-huang/",
-    icon: "icon-[tabler--brand-linkedin]",
+    icon: linkedinIcon,
     label: "LinkedIn",
 },
 {
     href: "https://github.com/kristyayarin/",
-    icon: "icon-[tabler--brand-github]",
+    icon: githubIcon,
     label: "GitHub",
 },
 ];
