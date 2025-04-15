@@ -4,6 +4,9 @@ on:
   # Trigger the workflow every time you push to the `main` branch
   push:
     branches: [ main ]
+  # Also trigger when PRs are merged into main
+  pull_request:
+    branches: [ main ]
   # Allows you to run this workflow manually from the Actions tab on GitHub
   workflow_dispatch:
 
@@ -50,4 +53,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4 
+        uses: actions/deploy-pages@v4
