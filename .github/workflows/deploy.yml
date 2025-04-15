@@ -4,6 +4,10 @@ on:
   # Trigger the workflow every time you push to the `main` branch
   push:
     branches: [ main ]
+  # Only trigger when PRs are closed (merged)
+  pull_request:
+    types: [closed]
+    branches: [ main ]
   # Allows you to run this workflow manually from the Actions tab on GitHub
   workflow_dispatch:
 
@@ -50,4 +54,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4 
+        uses: actions/deploy-pages@v4
