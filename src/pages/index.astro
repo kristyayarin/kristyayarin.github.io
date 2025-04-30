@@ -1,8 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
-import HeroCard from "@components/HeroCard.astro";
-import Card from "@components/CommonCard.astro";
+import FeaturedCard from "@components/FeaturedCard.astro";
+import Card from "@components/Card.astro";
 import Pagination from "@components/Pagination.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "@consts";
 
@@ -21,7 +21,7 @@ const basePath = "/page/";
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <div class="grid grid-cols-1">
     <div class="col-span-1 mb-4">
-      {firstPagePosts.length > 0 && <HeroCard post={firstPagePosts[0]} />}
+      {firstPagePosts.length > 0 && <FeaturedCard post={firstPagePosts[0]} />}
     </div>
 
     <div class="mb-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2">
