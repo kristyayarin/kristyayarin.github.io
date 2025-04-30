@@ -3,12 +3,8 @@ name: Deploy to GitHub Pages
 on:
   # Trigger the workflow every time you push to the `main` branch
   push:
-    branches: [ main ]
+    branches: [main]
   # Only trigger when PRs are closed (merged)
-  pull_request:
-    types: [closed]
-    branches: [ main ]
-  # Allows you to run this workflow manually from the Actions tab on GitHub
   workflow_dispatch:
 
 # Allow this job to clone the repo and create a page deployment
@@ -25,6 +21,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Only run the build job if the PR is merged or it's a direct push to main
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.merged == true)
     steps:
       - name: Checkout
         uses: actions/checkout@v4
