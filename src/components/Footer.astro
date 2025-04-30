@@ -5,41 +5,41 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer class="mx-auto mt-auto w-full max-w-[85rem] py-10">
-  <nav class="mx-auto w-full max-w-[85rem] px-4" aria-label="Footer">
-    <div class="flex flex-col items-center sm:flex-row sm:justify-between">
-      <div class="mt-2 sm:order-1 sm:mb-0">
-        <a class="flex-none text-sm" href="/" aria-label="Brand">&copy; {currentYear} Kristy Wong. All rights reserved.</a>
-      </div>
+	<nav class="mx-auto w-full max-w-[85rem] px-4" aria-label="Footer">
+		<div class="flex flex-col items-center sm:flex-row sm:justify-between">
+			<div class="mt-2 sm:order-1 sm:mb-0">
+				<a class="flex-none text-sm" href="/" aria-label="Brand"
+					>&copy; {currentYear} Kristy Wong. All rights reserved.</a
+				>
+			</div>
 
-      <div id="navbar-alignment" class="internal-links sm:order-2">
-        <div
-          class="mt-2 flex flex-row gap-5 sm:mt-0 sm:flex-row sm:items-center sm:ps-5"
-        >
-          {
-            FooterLinks.map((link) => (
-              <Link href={link.href} class="inline-flex gap-x-2 text-sm">
-                {link.title}
-              </Link>
-            ))
-          }
-        </div>
-      </div>
+			<div id="navbar-alignment" class="internal-links sm:order-2">
+				<div class="mt-2 flex flex-row gap-5 sm:mt-0 sm:flex-row sm:items-center sm:ps-5">
+					{
+						FooterLinks.map((link) => (
+							<Link href={link.href} class="inline-flex gap-x-2 text-sm">
+								{link.title}
+							</Link>
+						))
+					}
+				</div>
+			</div>
 
-      <div class="mt-2 flex flex-wrap gap-2 sm:order-3 sm:mb-0 sm:gap-0">
-        {
-          SocialLinks.map((link) => (
-            <a
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="inline-flex h-12 w-12 items-center justify-center text-gray-400 hover:text-white transition-colors duration-200"
-              aria-label={link.label}
-            >
-              <img src={link.icon.src} alt={link.label} />
-            </a>
-          ))
-        }
-      </div>
-    </div>
-  </nav>
+			<div class="mt-2 flex flex-wrap gap-2 sm:order-3 sm:mb-0 sm:gap-0">
+				{
+					SocialLinks.map((link) => (
+						<a
+							href={link.href}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="inline-flex h-12 w-12 items-center justify-center text-gray-400 transition-colors duration-200 hover:text-white"
+							aria-label={link.label}
+						>
+							<img src={link.icon.src} alt={link.label} />
+						</a>
+					))
+				}
+			</div>
+		</div>
+	</nav>
 </footer>

@@ -1,44 +1,44 @@
 {
-  "name": "Kristy-Portoflio",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "prettier": "prettier --write .",
-    "prettier-check": "prettier --check ."
-  },
-  "dependencies": {
-    "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "^4.0.4",
-    "@astrojs/partytown": "^2.1.3",
-    "@astrojs/rss": "^4.0.11",
-    "@astrojs/sitemap": "^3.2.1",
-    "@tailwindcss/vite": "^4.1.3",
-    "astro": "^5.6.1",
-    "astro-pagefind": "^1.8.2",
-    "dayjs": "^1.11.13",
-    "pagefind": "^1.1.1",
-    "sharp": "^0.33.5",
-    "tailwindcss": "^4.1.3",
-    "typescript": "^5.6.3"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.25.1",
-    "@iconify/json": "^2.2.317",
-    "@iconify/tailwind4": "^1.0.6",
-    "@tailwindcss/typography": "^0.5.15",
-    "daisyui": "^5.0.4",
-    "eslint": "^9.25.1",
-    "eslint-plugin-astro": "^1.3.1",
-    "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-prettier": "^5.2.6",
-    "globals": "^16.0.0",
-    "prettier": "^3.5.3",
-    "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.6.11",
-    "typescript-eslint": "^8.31.1"
-  }
+	"name": "Kristy-Portoflio",
+	"type": "module",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro",
+		"prettier": "prettier --write .",
+		"prettier-check": "prettier --check ."
+	},
+	"dependencies": {
+		"@astrojs/check": "^0.9.4",
+		"@astrojs/mdx": "^4.0.4",
+		"@astrojs/partytown": "^2.1.3",
+		"@astrojs/rss": "^4.0.11",
+		"@astrojs/sitemap": "^3.2.1",
+		"@tailwindcss/vite": "^4.1.3",
+		"astro": "^5.6.1",
+		"astro-pagefind": "^1.8.2",
+		"dayjs": "^1.11.13",
+		"pagefind": "^1.1.1",
+		"sharp": "^0.33.5",
+		"tailwindcss": "^4.1.3",
+		"typescript": "^5.6.3"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.25.1",
+		"@iconify/json": "^2.2.317",
+		"@iconify/tailwind4": "^1.0.6",
+		"@tailwindcss/typography": "^0.5.15",
+		"daisyui": "^5.0.4",
+		"eslint": "^9.25.1",
+		"eslint-plugin-astro": "^1.3.1",
+		"eslint-plugin-jsx-a11y": "^6.10.2",
+		"eslint-plugin-prettier": "^5.2.6",
+		"globals": "^16.0.0",
+		"prettier": "^3.5.3",
+		"prettier-plugin-astro": "^0.14.1",
+		"prettier-plugin-tailwindcss": "^0.6.11",
+		"typescript-eslint": "^8.31.1"
+	}
 }

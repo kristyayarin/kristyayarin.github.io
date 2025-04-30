@@ -1,105 +1,132 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 // This would typically come from a CMS or data file
 const portfolioItems = [
-  {
-    id: 'project-1',
-    title: 'VFX Animation Project 1',
-    description: 'Detailed description of this VFX animation project, including techniques used and your role in the project.',
-    tags: ['3D Animation', 'Visual Effects', 'Compositing'],
-    thumbnail: '/placeholder-1.jpg'
-  },
-  {
-    id: 'project-2',
-    title: 'VFX Animation Project 2',
-    description: 'Detailed description of this VFX animation project, including techniques used and your role in the project.',
-    tags: ['Motion Graphics', 'Character Animation', 'Rigging'],
-    thumbnail: '/placeholder-2.jpg'
-  },
-  {
-    id: 'project-3',
-    title: 'VFX Animation Project 3',
-    description: 'Detailed description of this VFX animation project, including techniques used and your role in the project.',
-    tags: ['Particle Effects', 'Dynamics', 'Lighting'],
-    thumbnail: '/placeholder-3.jpg'
-  },
-  {
-    id: 'project-4',
-    title: 'VFX Animation Project 4',
-    description: 'Detailed description of this VFX animation project, including techniques used and your role in the project.',
-    tags: ['Environment Design', 'Texturing', 'Rendering'],
-    thumbnail: '/placeholder-4.jpg'
-  },
-  {
-    id: 'project-5',
-    title: 'VFX Animation Project 5',
-    description: 'Detailed description of this VFX animation project, including techniques used and your role in the project.',
-    tags: ['Simulation', 'Fluid Dynamics', 'VFX'],
-    thumbnail: '/placeholder-5.jpg'
-  },
-  {
-    id: 'project-6',
-    title: 'VFX Animation Project 6',
-    description: 'Detailed description of this VFX animation project, including techniques used and your role in the project.',
-    tags: ['Tracking', 'Matchmoving', 'Integration'],
-    thumbnail: '/placeholder-6.jpg'
-  }
+	{
+		id: "project-1",
+		title: "VFX Animation Project 1",
+		description:
+			"Detailed description of this VFX animation project, including techniques used and your role in the project.",
+		tags: ["3D Animation", "Visual Effects", "Compositing"],
+		thumbnail: "/placeholder-1.jpg",
+	},
+	{
+		id: "project-2",
+		title: "VFX Animation Project 2",
+		description:
+			"Detailed description of this VFX animation project, including techniques used and your role in the project.",
+		tags: ["Motion Graphics", "Character Animation", "Rigging"],
+		thumbnail: "/placeholder-2.jpg",
+	},
+	{
+		id: "project-3",
+		title: "VFX Animation Project 3",
+		description:
+			"Detailed description of this VFX animation project, including techniques used and your role in the project.",
+		tags: ["Particle Effects", "Dynamics", "Lighting"],
+		thumbnail: "/placeholder-3.jpg",
+	},
+	{
+		id: "project-4",
+		title: "VFX Animation Project 4",
+		description:
+			"Detailed description of this VFX animation project, including techniques used and your role in the project.",
+		tags: ["Environment Design", "Texturing", "Rendering"],
+		thumbnail: "/placeholder-4.jpg",
+	},
+	{
+		id: "project-5",
+		title: "VFX Animation Project 5",
+		description:
+			"Detailed description of this VFX animation project, including techniques used and your role in the project.",
+		tags: ["Simulation", "Fluid Dynamics", "VFX"],
+		thumbnail: "/placeholder-5.jpg",
+	},
+	{
+		id: "project-6",
+		title: "VFX Animation Project 6",
+		description:
+			"Detailed description of this VFX animation project, including techniques used and your role in the project.",
+		tags: ["Tracking", "Matchmoving", "Integration"],
+		thumbnail: "/placeholder-6.jpg",
+	},
 ];
 ---
 
 <Layout title="Portfolio | Kristy Wong - VFX Artist">
-  <Header />
+	<Header />
 
-  <main class="pt-24 pb-16">
-    <div class="container mx-auto px-6">
-      <h1 class="text-4xl font-bold mb-2">Portfolio</h1>
-      <p class="text-xl text-gray-400 mb-12">A collection of my VFX and animation projects</p>
+	<main class="pt-24 pb-16">
+		<div class="container mx-auto px-6">
+			<h1 class="mb-2 text-4xl font-bold">Portfolio</h1>
+			<p class="mb-12 text-xl text-gray-400">A collection of my VFX and animation projects</p>
 
-      <!-- Portfolio Filter (optional) -->
-      <div class="flex flex-wrap gap-2 mb-8">
-        <button class="px-4 py-2 bg-purple-600 rounded-lg text-white text-sm font-medium">All</button>
-        <button class="px-4 py-2 bg-gray-700 rounded-lg text-white text-sm font-medium hover:bg-gray-600 transition">3D Animation</button>
-        <button class="px-4 py-2 bg-gray-700 rounded-lg text-white text-sm font-medium hover:bg-gray-600 transition">Visual Effects</button>
-        <button class="px-4 py-2 bg-gray-700 rounded-lg text-white text-sm font-medium hover:bg-gray-600 transition">Motion Graphics</button>
-      </div>
+			<!-- Portfolio Filter (optional) -->
+			<div class="mb-8 flex flex-wrap gap-2">
+				<button class="rounded-lg bg-purple-600 px-4 py-2 text-sm font-medium text-white"
+					>All</button
+				>
+				<button
+					class="rounded-lg bg-gray-700 px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-600"
+					>3D Animation</button
+				>
+				<button
+					class="rounded-lg bg-gray-700 px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-600"
+					>Visual Effects</button
+				>
+				<button
+					class="rounded-lg bg-gray-700 px-4 py-2 text-sm font-medium text-white transition hover:bg-gray-600"
+					>Motion Graphics</button
+				>
+			</div>
 
-      <!-- Portfolio Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {portfolioItems.map(item => (
-          <div class="bg-gray-800 rounded-lg overflow-hidden group hover:transform hover:scale-[1.02] transition duration-300">
-            <a href={`/portfolio/${item.id}`}>
-              <div class="aspect-video bg-gray-700 relative overflow-hidden">
-                <!-- Project thumbnail (replace with actual images) -->
-                <div class="absolute inset-0 flex items-center justify-center text-gray-500">
-                  <span class="text-lg">{item.title} Thumbnail</span>
-                </div>
-                <div class="absolute inset-0 bg-purple-600/20 opacity-0 group-hover:opacity-100 transition"></div>
-              </div>
-              <div class="p-6">
-                <h3 class="text-xl font-bold mb-2">{item.title}</h3>
-                <p class="text-gray-400 mb-4 line-clamp-2">{item.description}</p>
+			<!-- Portfolio Grid -->
+			<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+				{
+					portfolioItems.map((item) => (
+						<div class="group overflow-hidden rounded-lg bg-gray-800 transition duration-300 hover:scale-[1.02] hover:transform">
+							<a href={`/portfolio/${item.id}`}>
+								<div class="relative aspect-video overflow-hidden bg-gray-700">
+									{/* Project thumbnail (replace with actual images) */}
+									<div class="absolute inset-0 flex items-center justify-center text-gray-500">
+										<span class="text-lg">{item.title} Thumbnail</span>
+									</div>
+									<div class="absolute inset-0 bg-purple-600/20 opacity-0 transition group-hover:opacity-100" />
+								</div>
+								<div class="p-6">
+									<h3 class="mb-2 text-xl font-bold">{item.title}</h3>
+									<p class="mb-4 line-clamp-2 text-gray-400">{item.description}</p>
 
-                <div class="flex flex-wrap gap-2 mb-4">
-                  {item.tags.map(tag => (
-                    <span class="px-2 py-1 bg-gray-700 rounded text-xs text-gray-300">{tag}</span>
-                  ))}
-                </div>
+									<div class="mb-4 flex flex-wrap gap-2">
+										{item.tags.map((tag) => (
+											<span class="rounded bg-gray-700 px-2 py-1 text-xs text-gray-300">{tag}</span>
+										))}
+									</div>
 
-                <span class="text-purple-400 group-hover:text-purple-300 font-medium inline-flex items-center">
-                  View project details
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                  </svg>
-                </span>
-              </div>
-            </a>
-          </div>
-        ))}
-      </div>
-    </div>
-  </main>
-
+									<span class="inline-flex items-center font-medium text-purple-400 group-hover:text-purple-300">
+										View project details
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											class="ml-1 h-4 w-4"
+											viewBox="0 0 20 20"
+											fill="currentColor"
+										>
+											<path
+												fill-rule="evenodd"
+												d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+												clip-rule="evenodd"
+											/>
+										</svg>
+									</span>
+								</div>
+							</a>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</main>
 </Layout>
