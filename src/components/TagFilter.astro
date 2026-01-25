@@ -1,0 +1,112 @@
+---
+interface Props {
+    tags: string[];
+    activeTag?: string;
+}
+
+const { tags, activeTag = "all" } = Astro.props;
+
+// Get unique tags sorted alphabetically
+const uniqueTags = [...new Set(tags)].sort();
+---
+
+<div class="tag-filter flex flex-wrap gap-3 mb-10">
+    <button
+        class:list={[
+            "tag-button px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border",
+            activeTag === "all"
+                ? "bg-cyan-600 text-white shadow-md shadow-cyan-500/20 border-cyan-600"
+                : "bg-white text-gray-600 hover:bg-gray-50 hover:text-cyan-600 border-gray-200 hover:border-cyan-200",
+        ]}
+        data-tag="all"
+    >
+        All Projects
+    </button>
+
+    {
+        uniqueTags.map((tag) => (
+            <button
+                class:list={[
+                    "tag-button px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border",
+                    activeTag === tag
+                        ? "bg-cyan-600 text-white shadow-md shadow-cyan-500/20 border-cyan-600"
+                        : "bg-white text-gray-600 hover:bg-gray-50 hover:text-cyan-600 border-gray-200 hover:border-cyan-200",
+                ]}
+                data-tag={tag}
+            >
+                {tag}
+            </button>
+        ))
+    }
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const tagButtons = document.querySelectorAll(".tag-button");
+        const projectCards = document.querySelectorAll("[data-tags]");
+
+        tagButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                const selectedTag = button.getAttribute("data-tag");
+
+                // Update active button styles
+                tagButtons.forEach((btn) => {
+                    btn.classList.remove(
+                        "bg-cyan-600",
+                        "text-white",
+                        "shadow-md",
+                        "shadow-cyan-500/20",
+                        "border-cyan-600",
+                    );
+                    btn.classList.add(
+                        "bg-white",
+                        "text-gray-600",
+                        "border-gray-200",
+                    );
+                });
+                button.classList.remove(
+                    "bg-white",
+                    "text-gray-600",
+                    "border-gray-200",
+                );
+                button.classList.add(
+                    "bg-cyan-600",
+                    "text-white",
+                    "shadow-md",
+                    "shadow-cyan-500/20",
+                    "border-cyan-600",
+                );
+
+                // Filter projects
+                projectCards.forEach((card) => {
+                    const cardTags =
+                        card.getAttribute("data-tags")?.split(",") || [];
+                    const cardElement = card as HTMLElement;
+
+                    if (
+                        selectedTag === "all" ||
+                        cardTags.includes(selectedTag!)
+                    ) {
+                        cardElement.style.display = "block";
+                        cardElement.style.animation = "fadeIn 0.4s ease";
+                    } else {
+                        cardElement.style.display = "none";
+                    }
+                });
+            });
+        });
+    });
+</script>
+
+<style>
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>

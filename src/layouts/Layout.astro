@@ -13,10 +13,16 @@ const { title = "Kristy Wong - VFX Artist Portfolio" } = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<meta name="description" content="Portfolio website of Kristy Wong, a professional VFX artist showcasing animations and visual effects work." />
+		<meta
+			name="description"
+			content="Portfolio website of Kristy Wong, a professional VFX artist showcasing animations and visual effects work."
+		/>
 		<title>{title}</title>
+		<style>
+			@import "../styles/global.css";
+		</style>
 	</head>
-	<body class="bg-gray-900 text-white min-h-screen">
+	<body class="bg-gray-50 text-gray-900 min-h-screen">
 		<slot />
 	</body>
 </html>

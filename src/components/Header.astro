@@ -1,14 +1,68 @@
-<header class="px-6 py-4 bg-gray-800/50 backdrop-blur-md fixed w-full z-10">
-  <div class="max-w-6xl mx-auto flex justify-between items-center">
-    <a href="/" class="text-2xl font-bold text-white hover:text-purple-400 transition">Kristy Wong</a>
-    
+---
+// Get the current path to highlight active navigation
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/portfolio", label: "Portfolio" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+];
+
+// Helper to check if a link is active
+const isActive = (href: string) => {
+  if (href === "/") {
+    return currentPath === "/";
+  }
+  return currentPath.startsWith(href);
+};
+
+import logo from "../assets/logo.svg";
+---
+
+<header
+  class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm"
+>
+  <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+    <a
+      href="/"
+      class="flex items-center gap-2 hover:opacity-80 transition-opacity"
+    >
+      <img src={logo.src} alt="Kristy Wong" class="h-8" />
+    </a>
+
     <nav>
-      <ul class="flex space-x-6">
-        <li><a href="/" class="text-white hover:text-purple-400 transition">Home</a></li>
-        <li><a href="/portfolio" class="text-white hover:text-purple-400 transition">Portfolio</a></li>
-        <li><a href="/about" class="text-white hover:text-purple-400 transition">About</a></li>
-        <li><a href="/contact" class="text-white hover:text-purple-400 transition">Contact</a></li>
+      <ul class="flex items-center gap-2 list-none m-0 p-0">
+        {
+          navLinks.map((link) => (
+            <li class="list-none">
+              <a
+                href={link.href}
+                class:list={[
+                  "block px-4 py-2 rounded-full text-sm font-medium transition-all duration-200",
+                  isActive(link.href)
+                    ? "bg-cyan-500 text-white shadow-md shadow-cyan-500/20"
+                    : "text-gray-500 hover:text-gray-900 hover:bg-gray-100",
+                ]}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
       </ul>
     </nav>
   </div>
-</header> 
+</header>
+
+<style>
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav li {
+    list-style: none;
+  }
+</style>

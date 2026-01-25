@@ -1,0 +1,54 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { getCollection } from "astro:content";
+
+// Get all projects and extract unique tags
+const allProjects = await getCollection("projects");
+const allTags = allProjects.flatMap((project) => project.data.tags);
+const uniqueTags = [...new Set(allTags)].sort();
+
+// Count projects per tag
+const tagCounts = uniqueTags.map((tag) => ({
+    name: tag,
+    slug: tag.toLowerCase().replace(/\s+/g, "-"),
+    count: allProjects.filter((p) => p.data.tags.includes(tag)).length,
+}));
+---
+
+<Layout title="Tags | Kristy Wong - VFX Artist">
+    <Header />
+
+    <main class="pt-24 pb-16 min-h-screen">
+        <div class="container mx-auto px-6">
+            <h1 class="text-5xl font-bold mb-4">
+                Browse by <span class="text-cyan-400">Tag</span>
+            </h1>
+            <p class="text-xl text-gray-400 mb-12 max-w-2xl">
+                Explore projects organized by category and technique.
+            </p>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {
+                    tagCounts.map((tag) => (
+                        <a
+                            href={`/tags/${tag.slug}`}
+                            class="group p-6 bg-gray-800/50 hover:bg-gray-800 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/10 hover:scale-[1.02] border border-white/5 hover:border-cyan-500/30"
+                        >
+                            <h2 class="text-lg font-bold group-hover:text-cyan-400 transition-colors mb-2">
+                                {tag.name}
+                            </h2>
+                            <p class="text-gray-500 text-sm">
+                                {tag.count}{" "}
+                                {tag.count === 1 ? "project" : "projects"}
+                            </p>
+                        </a>
+                    ))
+                }
+            </div>
+        </div>
+    </main>
+
+    <Footer />
+</Layout>

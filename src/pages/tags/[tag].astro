@@ -1,0 +1,76 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+    const projects = await getCollection("projects");
+    const allTags = projects.flatMap((project) => project.data.tags);
+    const uniqueTags = [...new Set(allTags)];
+
+    return uniqueTags.map((tag) => ({
+        params: { tag: tag.toLowerCase().replace(/\s+/g, "-") },
+        props: {
+            tagName: tag,
+            projects: projects.filter((p) => p.data.tags.includes(tag)),
+        },
+    }));
+}
+
+const { tagName, projects } = Astro.props;
+const sortedProjects = projects.sort((a, b) => a.data.order - b.data.order);
+---
+
+<Layout title={`${tagName} Projects | Kristy Wong - VFX Artist`}>
+    <Header />
+
+    <main class="pt-24 pb-16 min-h-screen">
+        <div class="container mx-auto px-6">
+            <!-- Back to tags -->
+            <a
+                href="/tags"
+                class="inline-flex items-center text-gray-400 hover:text-white transition-colors mb-8 group"
+            >
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 mr-2 transform group-hover:-translate-x-1 transition-transform"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                >
+                    <path
+                        fill-rule="evenodd"
+                        d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+                All Tags
+            </a>
+
+            <h1 class="text-5xl font-bold mb-4">
+                <span class="text-cyan-400">{tagName}</span> Projects
+            </h1>
+            <p class="text-xl text-gray-400 mb-12">
+                {sortedProjects.length}
+                {sortedProjects.length === 1 ? "project" : "projects"} in this category
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {
+                    sortedProjects.map((project) => (
+                        <ProjectCard
+                            title={project.data.title}
+                            description={project.data.description}
+                            coverImage={project.data.coverImage}
+                            videoUrl={project.data.videoUrl}
+                            tags={project.data.tags}
+                            slug={project.slug}
+                        />
+                    ))
+                }
+            </div>
+        </div>
+    </main>
+
+    <Footer />
+</Layout>
