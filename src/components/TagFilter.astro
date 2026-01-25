@@ -13,10 +13,10 @@ const uniqueTags = [...new Set(tags)].sort();
 <div class="tag-filter flex flex-wrap gap-3 mb-10">
     <button
         class:list={[
-            "tag-button px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border",
+            "tag-button px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300",
             activeTag === "all"
-                ? "bg-cyan-600 text-white shadow-md shadow-cyan-500/20 border-cyan-600"
-                : "bg-white text-gray-600 hover:bg-gray-50 hover:text-cyan-600 border-gray-200 hover:border-cyan-200",
+                ? "bg-purple-600 text-white shadow-lg shadow-purple-500/25"
+                : "bg-gray-700/50 text-gray-300 hover:bg-gray-600/50 hover:text-white",
         ]}
         data-tag="all"
     >
@@ -27,10 +27,10 @@ const uniqueTags = [...new Set(tags)].sort();
         uniqueTags.map((tag) => (
             <button
                 class:list={[
-                    "tag-button px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 border",
+                    "tag-button px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300",
                     activeTag === tag
-                        ? "bg-cyan-600 text-white shadow-md shadow-cyan-500/20 border-cyan-600"
-                        : "bg-white text-gray-600 hover:bg-gray-50 hover:text-cyan-600 border-gray-200 hover:border-cyan-200",
+                        ? "bg-purple-600 text-white shadow-lg shadow-purple-500/25"
+                        : "bg-gray-700/50 text-gray-300 hover:bg-gray-600/50 hover:text-white",
                 ]}
                 data-tag={tag}
             >
@@ -52,29 +52,19 @@ const uniqueTags = [...new Set(tags)].sort();
                 // Update active button styles
                 tagButtons.forEach((btn) => {
                     btn.classList.remove(
-                        "bg-cyan-600",
+                        "bg-purple-600",
                         "text-white",
-                        "shadow-md",
-                        "shadow-cyan-500/20",
-                        "border-cyan-600",
+                        "shadow-lg",
+                        "shadow-purple-500/25",
                     );
-                    btn.classList.add(
-                        "bg-white",
-                        "text-gray-600",
-                        "border-gray-200",
-                    );
+                    btn.classList.add("bg-gray-700/50", "text-gray-300");
                 });
-                button.classList.remove(
-                    "bg-white",
-                    "text-gray-600",
-                    "border-gray-200",
-                );
+                button.classList.remove("bg-gray-700/50", "text-gray-300");
                 button.classList.add(
-                    "bg-cyan-600",
+                    "bg-purple-600",
                     "text-white",
-                    "shadow-md",
-                    "shadow-cyan-500/20",
-                    "border-cyan-600",
+                    "shadow-lg",
+                    "shadow-purple-500/25",
                 );
 
                 // Filter projects

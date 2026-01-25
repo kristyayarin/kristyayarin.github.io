@@ -11,19 +11,16 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f3f4f6;
-  /* light gray */
+  background: #1f2937;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #a5f3fc;
-  /* cyan-200 */
+  background: #6b21a8;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #22d3ee;
-  /* cyan-400 */
+  background: #7c3aed;
 }
 
 /* Line clamp utility */
@@ -37,13 +34,11 @@ html {
 
 /* Prose styling for markdown */
 .prose {
-  color: #374151;
-  /* gray-700 */
+  color: #d1d5db;
 }
 
 .prose h2 {
-  color: #111827;
-  /* gray-900 */
+  color: #fff;
   font-size: 1.5rem;
   font-weight: 700;
   margin-top: 2rem;
@@ -51,8 +46,7 @@ html {
 }
 
 .prose h3 {
-  color: #1f2937;
-  /* gray-800 */
+  color: #fff;
   font-size: 1.25rem;
   font-weight: 600;
   margin-top: 1.5rem;
@@ -74,19 +68,16 @@ html {
 }
 
 .prose strong {
-  color: #111827;
-  /* gray-900 */
+  color: #fff;
 }
 
 .prose a {
-  color: #06b6d4;
-  /* cyan-500 */
+  color: #a78bfa;
   text-decoration: underline;
 }
 
 .prose a:hover {
-  color: #0891b2;
-  /* cyan-600 */
+  color: #c4b5fd;
 }
 
 /* Animation utilities */

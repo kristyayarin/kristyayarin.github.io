@@ -23,7 +23,7 @@ const tagCounts = uniqueTags.map((tag) => ({
     <main class="pt-24 pb-16 min-h-screen">
         <div class="container mx-auto px-6">
             <h1 class="text-5xl font-bold mb-4">
-                Browse by <span class="text-cyan-400">Tag</span>
+                Browse by <span class="text-purple-400">Tag</span>
             </h1>
             <p class="text-xl text-gray-400 mb-12 max-w-2xl">
                 Explore projects organized by category and technique.
@@ -34,9 +34,9 @@ const tagCounts = uniqueTags.map((tag) => ({
                     tagCounts.map((tag) => (
                         <a
                             href={`/tags/${tag.slug}`}
-                            class="group p-6 bg-gray-800/50 hover:bg-gray-800 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/10 hover:scale-[1.02] border border-white/5 hover:border-cyan-500/30"
+                            class="group p-6 bg-gray-800/50 hover:bg-gray-800 rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10 hover:scale-[1.02]"
                         >
-                            <h2 class="text-lg font-bold group-hover:text-cyan-400 transition-colors mb-2">
+                            <h2 class="text-lg font-bold group-hover:text-purple-400 transition-colors mb-2">
                                 {tag.name}
                             </h2>
                             <p class="text-gray-500 text-sm">
