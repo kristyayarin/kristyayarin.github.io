@@ -1,7 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 import { getCollection } from 'astro:content';
 
 // Get featured projects for the home page
@@ -18,7 +16,6 @@ const heroVimeoId = '1082394850';
 ---
 
 <Layout title="Kristy Wong - VFX Artist Portfolio">
-  <Header />
   
   <main>
     <!-- Hero Section with Video Background -->
@@ -124,7 +121,6 @@ const heroVimeoId = '1082394850';
     </section>
   </main>
   
-  <Footer />
 </Layout>
 
 <style>

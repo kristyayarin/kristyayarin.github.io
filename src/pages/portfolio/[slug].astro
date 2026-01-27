@@ -1,7 +1,5 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
@@ -32,8 +30,6 @@ const vimeoId = getVimeoId(project.data.videoUrl);
 ---
 
 <Layout title={`${project.data.title} | Kristy Wong - VFX Artist`}>
-	<Header />
-
 	<main class="pt-24 pb-16">
 		<article class="container mx-auto px-6">
 			<!-- Back button -->
@@ -145,8 +141,6 @@ const vimeoId = getVimeoId(project.data.videoUrl);
 			}
 		</article>
 	</main>
-
-	<Footer />
 </Layout>
 
 <style>
