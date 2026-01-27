@@ -1,15 +1,15 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-    const projects = await getCollection("projects");
-    return projects.map((project) => ({
-        params: { slug: project.slug },
-        props: { project },
-    }));
+	const projects = await getCollection("projects");
+	return projects.map((project) => ({
+		params: { slug: project.slug },
+		props: { project },
+	}));
 }
 
 const { project } = Astro.props;
@@ -18,169 +18,164 @@ const { Content } = await project.render();
 // Get related projects (same tags)
 const allProjects = await getCollection("projects");
 const relatedProjects = allProjects
-    .filter((p) => p.slug !== project.slug)
-    .filter((p) => p.data.tags.some((tag) => project.data.tags.includes(tag)))
-    .slice(0, 3);
+	.filter((p) => p.slug !== project.slug)
+	.filter((p) => p.data.tags.some((tag) => project.data.tags.includes(tag)))
+	.slice(0, 3);
 
 // Extract Vimeo ID
 const getVimeoId = (url: string) => {
-    const match = url.match(/vimeo\.com\/(\d+)/);
-    return match ? match[1] : null;
+	const match = url.match(/vimeo\.com\/(\d+)/);
+	return match ? match[1] : null;
 };
 
 const vimeoId = getVimeoId(project.data.videoUrl);
 ---
 
 <Layout title={`${project.data.title} | Kristy Wong - VFX Artist`}>
-    <Header />
+	<Header />
 
-    <main class="pt-24 pb-16">
-        <article class="container mx-auto px-6">
-            <!-- Back button -->
-            <a
-                href="/portfolio"
-                class="inline-flex items-center text-gray-400 hover:text-purple-400 transition-colors mb-8 group"
-            >
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 mr-2 transform group-hover:-translate-x-1 transition-transform"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                >
-                    <path
-                        fill-rule="evenodd"
-                        d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
-                        clip-rule="evenodd"></path>
-                </svg>
-                Back to Portfolio
-            </a>
+	<main class="pt-24 pb-16">
+		<article class="container mx-auto px-6">
+			<!-- Back button -->
+			<a
+				href="/portfolio"
+				class="group mb-8 inline-flex items-center text-gray-400 transition-colors hover:text-purple-400"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="mr-2 h-5 w-5 transform transition-transform group-hover:-translate-x-1"
+					viewBox="0 0 20 20"
+					fill="currentColor"
+				>
+					<path
+						fill-rule="evenodd"
+						d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+						clip-rule="evenodd"></path>
+				</svg>
+				Back to Portfolio
+			</a>
 
-            <!-- Video Player -->
-            <div
-                class="aspect-video bg-gray-800 rounded-2xl overflow-hidden mb-8 shadow-2xl shadow-purple-500/10"
-            >
-                {
-                    vimeoId ? (
-                        <iframe
-                            src={`https://player.vimeo.com/video/${vimeoId}?byline=0&title=0`}
-                            class="w-full h-full"
-                            frameborder="0"
-                            allow="autoplay; fullscreen; picture-in-picture"
-                            allowfullscreen
-                        />
-                    ) : (
-                        <div class="w-full h-full flex items-center justify-center text-gray-500">
-                            <p>Video not available</p>
-                        </div>
-                    )
-                }
-            </div>
+			<!-- Video Player -->
+			<div
+				class="mb-8 aspect-video overflow-hidden rounded-2xl bg-gray-800 shadow-2xl shadow-purple-500/10"
+			>
+				{
+					vimeoId ? (
+						<iframe
+							src={`https://player.vimeo.com/video/${vimeoId}?byline=0&title=0`}
+							class="h-full w-full"
+							frameborder="0"
+							allow="autoplay; fullscreen; picture-in-picture"
+							allowfullscreen
+						/>
+					) : (
+						<div class="flex h-full w-full items-center justify-center text-gray-500">
+							<p>Video not available</p>
+						</div>
+					)
+				}
+			</div>
 
-            <!-- Project Header -->
-            <header class="mb-12">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">
-                    {project.data.title}
-                </h1>
-                <p class="text-xl text-gray-400 mb-6">
-                    {project.data.description}
-                </p>
+			<!-- Project Header -->
+			<header class="mb-12">
+				<h1 class="mb-4 text-4xl font-bold md:text-5xl">
+					{project.data.title}
+				</h1>
+				<p class="mb-6 text-xl text-gray-400">
+					{project.data.description}
+				</p>
 
-                <!-- Tags -->
-                <div class="flex flex-wrap gap-3">
-                    {
-                        project.data.tags.map((tag) => (
-                            <a
-                                href={`/tags/${tag.toLowerCase().replace(/\s+/g, "-")}`}
-                                class="px-4 py-2 bg-purple-600/20 hover:bg-purple-600/40 text-purple-400 rounded-full text-sm font-medium transition-colors"
-                            >
-                                {tag}
-                            </a>
-                        ))
-                    }
-                </div>
+				<!-- Tags -->
+				<div class="flex flex-wrap gap-3">
+					{
+						project.data.tags.map((tag) => (
+							<a
+								href={`/tags/${tag.toLowerCase().replace(/\s+/g, "-")}`}
+								class="rounded-full bg-purple-600/20 px-4 py-2 text-sm font-medium text-purple-400 transition-colors hover:bg-purple-600/40"
+							>
+								{tag}
+							</a>
+						))
+					}
+				</div>
 
-                <!-- Date -->
-                <p class="text-gray-500 mt-6">
-                    {
-                        project.data.date.toLocaleDateString("en-US", {
-                            year: "numeric",
-                            month: "long",
-                        })
-                    }
-                </p>
-            </header>
+				<!-- Date -->
+				<p class="mt-6 text-gray-500">
+					{
+						project.data.date.toLocaleDateString("en-US", {
+							year: "numeric",
+							month: "long",
+						})
+					}
+				</p>
+			</header>
 
-            <!-- Project Content -->
-            <div class="prose prose-invert prose-lg max-w-none mb-16">
-                <Content />
-            </div>
+			<!-- Project Content -->
+			<div class="prose prose-invert prose-lg mb-16 max-w-none">
+				<Content />
+			</div>
 
-            <!-- Related Projects -->
-            {
-                relatedProjects.length > 0 && (
-                    <section class="border-t border-gray-800 pt-16">
-                        <h2 class="text-2xl font-bold mb-8">
-                            Related Projects
-                        </h2>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                            {relatedProjects.map((related) => (
-                                <a
-                                    href={`/portfolio/${related.slug}`}
-                                    class="group block"
-                                >
-                                    <div class="bg-gray-800 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10">
-                                        <div class="aspect-video relative overflow-hidden">
-                                            <img
-                                                src={related.data.coverImage}
-                                                alt={related.data.title}
-                                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                                            />
-                                        </div>
-                                        <div class="p-4">
-                                            <h3 class="font-bold group-hover:text-purple-400 transition-colors">
-                                                {related.data.title}
-                                            </h3>
-                                        </div>
-                                    </div>
-                                </a>
-                            ))}
-                        </div>
-                    </section>
-                )
-            }
-        </article>
-    </main>
+			<!-- Related Projects -->
+			{
+				relatedProjects.length > 0 && (
+					<section class="border-t border-gray-800 pt-16">
+						<h2 class="mb-8 text-2xl font-bold">Related Projects</h2>
+						<div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+							{relatedProjects.map((related) => (
+								<a href={`/portfolio/${related.slug}`} class="group block">
+									<div class="overflow-hidden rounded-xl bg-gray-800 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10">
+										<div class="relative aspect-video overflow-hidden">
+											<img
+												src={related.data.coverImage}
+												alt={related.data.title}
+												class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+											/>
+										</div>
+										<div class="p-4">
+											<h3 class="font-bold transition-colors group-hover:text-purple-400">
+												{related.data.title}
+											</h3>
+										</div>
+									</div>
+								</a>
+							))}
+						</div>
+					</section>
+				)
+			}
+		</article>
+	</main>
 
-    <Footer />
+	<Footer />
 </Layout>
 
 <style>
-    /* Prose styling for markdown content */
-    .prose h2 {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: #fff;
-        margin-top: 2rem;
-        margin-bottom: 1rem;
-    }
+	/* Prose styling for markdown content */
+	.prose h2 {
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: #fff;
+		margin-top: 2rem;
+		margin-bottom: 1rem;
+	}
 
-    .prose p {
-        color: #d1d5db;
-        margin-bottom: 1rem;
-    }
+	.prose p {
+		color: #d1d5db;
+		margin-bottom: 1rem;
+	}
 
-    .prose ul {
-        list-style-type: disc;
-        list-style-position: inside;
-        color: #d1d5db;
-        margin-bottom: 1rem;
-    }
+	.prose ul {
+		list-style-type: disc;
+		list-style-position: inside;
+		color: #d1d5db;
+		margin-bottom: 1rem;
+	}
 
-    .prose li {
-        margin-bottom: 0.5rem;
-    }
+	.prose li {
+		margin-bottom: 0.5rem;
+	}
 
-    .prose strong {
-        color: #fff;
-    }
+	.prose strong {
+		color: #fff;
+	}
 </style>
