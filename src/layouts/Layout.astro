@@ -9,7 +9,18 @@ import "./Layout.css";
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} />
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<meta
+			name="description"
+			content="Portfolio website of Kristy Wong, a professional VFX artist showcasing animations and visual effects work."
+		/>
+		<title>{title}</title>
+		<style>
+			@import "../styles/global.css";
+		</style>
 	</head>
 	<body class="dark:prose-invert mx-auto flex min-h-screen max-w-6xl flex-col px-4 sm:px-6 lg:px-8">
 		<Header />

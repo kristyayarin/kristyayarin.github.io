@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40" fill="none">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a855f7"/>
+      <stop offset="100%" style="stop-color:#ec4899"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="8" width="24" height="24" rx="4" fill="url(#logoGradient)"/>
+  <text x="32" y="26" font-family="system-ui, sans-serif" font-size="18" font-weight="700" fill="white">KW</text>
+  <text x="55" y="26" font-family="system-ui, sans-serif" font-size="14" font-weight="400" fill="#d1d5db">Studio</text>
+</svg>
