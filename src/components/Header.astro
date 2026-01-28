@@ -3,66 +3,61 @@
 const currentPath = Astro.url.pathname;
 
 const navLinks = [
-  { href: "/", label: "Home" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
+	{ href: "/", label: "Home" },
+	{ href: "/portfolio", label: "Portfolio" },
+	{ href: "/about", label: "About" },
+	{ href: "/contact", label: "Contact" },
 ];
 
 // Helper to check if a link is active
 const isActive = (href: string) => {
-  if (href === "/") {
-    return currentPath === "/";
-  }
-  return currentPath.startsWith(href);
+	if (href === "/") {
+		return currentPath === "/";
+	}
+	return currentPath.startsWith(href);
 };
 
-import logo from "../assets/logo.svg";
+import logo from "../assets/LOGOtext.png";
 ---
 
-<header
-  class="fixed w-full z-50 bg-gray-900/95 backdrop-blur-md border-b border-purple-500/20"
->
-  <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-    <a
-      href="/"
-      class="flex items-center gap-2 hover:opacity-80 transition-opacity"
-    >
-      <img src={logo.src} alt="Kristy Wong" class="h-8" />
-    </a>
+<header class="fixed z-50 w-full border-b border-purple-500/20 bg-gray-900/95 backdrop-blur-md">
+	<div class="container mx-auto flex items-center justify-between px-6 py-3">
+		<a href="/" class="flex items-center gap-2 transition-opacity hover:opacity-80">
+			<img src={logo.src} alt="Kristy Wong" class="h-8" />
+		</a>
 
-    <nav>
-      <ul class="flex items-center gap-2 list-none m-0 p-0">
-        {
-          navLinks.map((link) => (
-            <li class="list-none">
-              <a
-                href={link.href}
-                class:list={[
-                  "block px-4 py-2 rounded-full text-sm font-medium transition-all duration-200",
-                  isActive(link.href)
-                    ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/25"
-                    : "text-gray-300 hover:text-white hover:bg-white/10",
-                ]}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
-  </div>
+		<nav>
+			<ul class="m-0 flex list-none items-center gap-2 p-0">
+				{
+					navLinks.map((link) => (
+						<li class="list-none">
+							<a
+								href={link.href}
+								class:list={[
+									"block rounded-full px-4 py-2 text-sm font-medium transition-all duration-200",
+									isActive(link.href)
+										? "bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/25"
+										: "text-gray-300 hover:bg-white/10 hover:text-white",
+								]}
+							>
+								{link.label}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</nav>
+	</div>
 </header>
 
 <style>
-  nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
+	nav ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
 
-  nav li {
-    list-style: none;
-  }
+	nav li {
+		list-style: none;
+	}
 </style>
