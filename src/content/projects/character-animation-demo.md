@@ -1,6 +1,6 @@
 ---
 title: "Bamboo Fountain"
-description: "Character animation and rigging demo showcasing walk cycles, combat animations, and facial expressions for game characters."
+description: "The idea of this project is to create a bamboo water fountain from the YouTube video as shown above.I create this project in Houdini and render using Arnold. The movement is drive by the water wheel in the centre."
 coverImage: "/images/projects/BambooFountain-cover.jpg"
 videoUrl: "https://vimeo.com/536592962"
 tags: ["Character Animation", "Rigging", "Maya"]
