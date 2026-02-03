@@ -14,6 +14,19 @@ const projectsCollection = defineCollection({
   }),
 });
 
+const blogCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    coverImage: z.string().optional(),
+    tags: z.array(z.string()),
+    date: z.date(),
+    author: z.string().default('Kristy Wong'),
+  }),
+});
+
 export const collections = {
   projects: projectsCollection,
+  blog: blogCollection,
 };

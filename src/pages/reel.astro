@@ -1,0 +1,46 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+// Placeholder Vimeo ID - user can replace with their actual demo reel
+const reelVimeoId = "1082394850";
+---
+
+<Layout title="Demo Reel | Kristy Wong - VFX Artist">
+	<main class="min-h-screen pt-24 pb-16">
+		<div class="container mx-auto px-6">
+			<!-- Page Header -->
+			<div class="mb-8 text-center">
+				<h1 class="mb-4 text-5xl font-bold text-gray-900">
+					Demo <span class="text-gray-600">Reel</span>
+				</h1>
+			</div>
+
+			<!-- Video Container -->
+			<div class="mx-auto max-w-5xl">
+				<div class="aspect-video overflow-hidden rounded-2xl bg-gray-100 shadow-2xl">
+					<iframe
+						src={`https://player.vimeo.com/video/${reelVimeoId}?byline=0&title=0`}
+						class="h-full w-full"
+						frameborder="0"
+						allow="autoplay; fullscreen; picture-in-picture"
+						allowfullscreen></iframe>
+				</div>
+
+				<!-- Description -->
+				<p class="mx-auto mt-8 max-w-2xl text-center text-xl text-gray-600">
+					A collection of my best visual effects and animation work from recent projects.
+				</p>
+
+				<!-- CTA -->
+				<div class="mt-12 text-center">
+					<a
+						href="/contact"
+						class="inline-block rounded-lg bg-gray-900 px-8 py-4 font-medium text-white transition hover:bg-gray-800"
+					>
+						Get In Touch
+					</a>
+				</div>
+			</div>
+		</div>
+	</main>
+</Layout>

@@ -1,0 +1,170 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+// Get all blog posts
+const allPosts = await getCollection("blog");
+const sortedPosts = allPosts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+// Get all unique tags
+const allTags = [...new Set(sortedPosts.flatMap((post) => post.data.tags))].sort();
+---
+
+<Layout title="Blog | Kristy Wong - VFX Artist">
+	<main class="min-h-screen pt-24 pb-16">
+		<div class="container mx-auto px-6">
+			<!-- Page Header -->
+			<div class="mb-8">
+				<h1 class="mb-4 text-5xl font-bold text-gray-900">
+					My <span class="text-gray-600">Blog</span>
+				</h1>
+				<p class="max-w-2xl text-xl text-gray-600">
+					Thoughts, tutorials, and behind-the-scenes looks at my VFX work.
+				</p>
+			</div>
+
+			<!-- Tag Filter -->
+			<div class="tag-filter mb-10 flex flex-wrap gap-3">
+				<button
+					class="tag-button rounded-full bg-gray-900 px-5 py-2.5 text-sm font-medium text-white transition-all duration-300"
+					data-tag="all"
+				>
+					All Posts
+				</button>
+				{
+					allTags.map((tag) => (
+						<button
+							class="tag-button rounded-full bg-gray-200 px-5 py-2.5 text-sm font-medium text-gray-700 transition-all duration-300 hover:bg-gray-300"
+							data-tag={tag}
+						>
+							{tag}
+						</button>
+					))
+				}
+			</div>
+
+			<!-- Blog Grid -->
+			<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+				{
+					sortedPosts.map((post) => (
+						<article class="blog-card group" data-tags={post.data.tags.join(",")}>
+							<a href={`/blog/${post.slug}`} class="block">
+								<div class="overflow-hidden rounded-xl border border-gray-200 bg-white transition-all duration-300 hover:shadow-lg">
+									{post.data.coverImage && (
+										<div class="aspect-video overflow-hidden">
+											<img
+												src={post.data.coverImage}
+												alt={post.data.title}
+												class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+											/>
+										</div>
+									)}
+									<div class="p-6">
+										<div class="mb-3 flex flex-wrap gap-2">
+											{post.data.tags.map((tag) => (
+												<span class="rounded-full bg-gray-200 px-3 py-1 text-xs font-medium text-gray-700">
+													{tag}
+												</span>
+											))}
+										</div>
+										<h2 class="mb-2 text-xl font-bold text-gray-900 transition-colors group-hover:text-gray-600">
+											{post.data.title}
+										</h2>
+										<p class="mb-4 line-clamp-2 text-sm text-gray-600">
+											{post.data.description}
+										</p>
+										<time class="text-sm text-gray-500">
+											{post.data.date.toLocaleDateString("en-US", {
+												year: "numeric",
+												month: "long",
+												day: "numeric",
+											})}
+										</time>
+									</div>
+								</div>
+							</a>
+						</article>
+					))
+				}
+			</div>
+
+			<!-- Empty State -->
+			<div id="empty-state" class="hidden py-16 text-center">
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="mx-auto mb-4 h-16 w-16 text-gray-400"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke="currentColor"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+					></path>
+				</svg>
+				<p class="text-lg text-gray-500">No posts found for this tag.</p>
+			</div>
+		</div>
+	</main>
+</Layout>
+
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		const tagButtons = document.querySelectorAll(".tag-button");
+		const blogCards = document.querySelectorAll(".blog-card");
+		const emptyState = document.getElementById("empty-state");
+
+		tagButtons.forEach((button) => {
+			button.addEventListener("click", () => {
+				const selectedTag = button.getAttribute("data-tag");
+
+				// Update active button styles
+				tagButtons.forEach((btn) => {
+					btn.classList.remove("bg-gray-900", "text-white");
+					btn.classList.add("bg-gray-200", "text-gray-700");
+				});
+				button.classList.remove("bg-gray-200", "text-gray-700");
+				button.classList.add("bg-gray-900", "text-white");
+
+				// Filter posts
+				let visibleCount = 0;
+				blogCards.forEach((card) => {
+					const cardTags = card.getAttribute("data-tags")?.split(",") || [];
+					const cardElement = card as HTMLElement;
+
+					if (selectedTag === "all" || cardTags.includes(selectedTag!)) {
+						cardElement.style.display = "block";
+						cardElement.style.animation = "fadeIn 0.4s ease";
+						visibleCount++;
+					} else {
+						cardElement.style.display = "none";
+					}
+				});
+
+				// Show/hide empty state
+				if (emptyState) {
+					if (visibleCount === 0) {
+						emptyState.classList.remove("hidden");
+					} else {
+						emptyState.classList.add("hidden");
+					}
+				}
+			});
+		});
+	});
+</script>
+
+<style>
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+			transform: translateY(10px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+</style>

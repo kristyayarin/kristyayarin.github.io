@@ -6,9 +6,9 @@ export const SITE_TITLE = "Kristy Wong - VFX Artist Portfolio";
 export const SITE_DESCRIPTION = "";
 
 export const FooterLinks = [
-    { href: "/portfolio", title: "Portfolio" },
+    { href: "/showcase", title: "Showcase" },
+    { href: "/blog", title: "Blog" },
     { href: "/about", title: "About" },
-    { href: "/tags", title: "Tags" },
 ];
 
 export const SocialLinks = [

@@ -1,157 +1,118 @@
 ---
 interface Props {
-    title: string;
-    description: string;
-    coverImage: string;
-    videoUrl: string;
-    tags: string[];
-    slug: string;
+	title: string;
+	description: string;
+	coverImage: string;
+	videoUrl: string;
+	tags: string[];
+	slug: string;
 }
 
-const { title, description, coverImage, videoUrl, tags, slug } = Astro.props;
+const { title, coverImage, videoUrl, slug } = Astro.props;
 
 // Extract Vimeo ID from URL
 const getVimeoId = (url: string) => {
-    const match = url.match(/vimeo\.com\/(\d+)/);
-    return match ? match[1] : null;
+	const match = url.match(/vimeo\.com\/(\d+)/);
+	return match ? match[1] : null;
 };
 
 const vimeoId = getVimeoId(videoUrl);
 ---
 
-<a
-    href={`/portfolio/${slug}`}
-    class="project-card group block"
-    data-vimeo-id={vimeoId}
->
-    <div
-        class="bg-gray-900 rounded-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20"
-    >
-        <div class="aspect-video relative overflow-hidden">
-            <!-- Cover Image (visible by default) -->
-            <img
-                src={coverImage}
-                alt={title}
-                class="project-cover absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
-            />
+<a href={`/showcase/${slug}`} class="project-card group block" data-vimeo-id={vimeoId}>
+	<div
+		class="overflow-hidden rounded-lg border border-gray-200 bg-white transition-all duration-500 hover:shadow-xl"
+	>
+		<div class="relative aspect-video overflow-hidden">
+			<!-- Cover Image (visible by default) -->
+			<img
+				src={coverImage}
+				alt={title}
+				class="project-cover absolute inset-0 h-full w-full object-cover transition-opacity duration-500"
+			/>
 
-            <!-- Video Container (hidden by default, shown on hover) -->
-            <div
-                class="project-video-container absolute inset-0 opacity-0 transition-opacity duration-500"
-            >
-                {
-                    vimeoId && (
-                        <iframe
-                            class="project-video w-full h-full"
-                            data-src={`https://player.vimeo.com/video/${vimeoId}?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1`}
-                            frameborder="0"
-                            allow="autoplay; fullscreen"
-                        />
-                    )
-                }
-            </div>
+			<!-- Video Container (hidden by default, shown on hover) -->
+			<div
+				class="project-video-container absolute inset-0 opacity-0 transition-opacity duration-500"
+			>
+				{
+					vimeoId && (
+						<iframe
+							class="project-video h-full w-full"
+							data-src={`https://player.vimeo.com/video/${vimeoId}?background=1&autoplay=1&loop=1&byline=0&title=0&muted=1`}
+							frameborder="0"
+							allow="autoplay; fullscreen"
+						/>
+					)
+				}
+			</div>
 
-            <!-- Overlay -->
-            <div
-                class="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-60"
-            >
-            </div>
+			<!-- Overlay -->
+			<div
+				class="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-60"
+			>
+			</div>
 
-            <!-- Play icon -->
-            <div
-                class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 z-10"
-            >
-                <div
-                    class="play-button w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center transform scale-90 group-hover:scale-100 transition-transform duration-300"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-8 w-8 text-white ml-1"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                    >
-                        <path d="M8 5v14l11-7z"></path>
-                    </svg>
-                </div>
-            </div>
+			<!-- Play icon -->
+			<div
+				class="absolute inset-0 z-10 flex items-center justify-center opacity-0 transition-all duration-300 group-hover:opacity-100"
+			>
+				<div
+					class="play-button flex h-14 w-14 scale-90 transform items-center justify-center rounded-full bg-white/80 backdrop-blur-md transition-transform duration-300 group-hover:scale-100"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						class="ml-1 h-6 w-6 text-gray-900"
+						viewBox="0 0 24 24"
+						fill="currentColor"
+					>
+						<path d="M8 5v14l11-7z"></path>
+					</svg>
+				</div>
+			</div>
+		</div>
 
-            <!-- Tags overlay -->
-            <div
-                class="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2 z-10"
-            >
-                {
-                    tags
-                        .slice(0, 3)
-                        .map((tag) => (
-                            <span class="px-3 py-1 bg-purple-600/80 backdrop-blur-sm rounded-full text-xs text-white font-medium">
-                                {tag}
-                            </span>
-                        ))
-                }
-            </div>
-        </div>
-
-        <div class="p-6">
-            <h3
-                class="text-xl font-bold mb-2 group-hover:text-purple-400 transition-colors duration-300"
-            >
-                {title}
-            </h3>
-            <p class="text-gray-400 line-clamp-2 text-sm">{description}</p>
-
-            <div
-                class="mt-4 flex items-center text-purple-400 group-hover:text-purple-300 font-medium text-sm"
-            >
-                View project
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-4 w-4 ml-2 transform group-hover:translate-x-1 transition-transform duration-300"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                >
-                    <path
-                        fill-rule="evenodd"
-                        d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                        clip-rule="evenodd"></path>
-                </svg>
-            </div>
-        </div>
-    </div>
+		<div class="p-4">
+			<h3
+				class="text-lg font-bold text-gray-900 transition-colors duration-300 group-hover:text-gray-600"
+			>
+				{title}
+			</h3>
+		</div>
+	</div>
 </a>
 
 <style>
-    .project-card:hover .project-cover {
-        opacity: 0;
-    }
+	.project-card:hover .project-cover {
+		opacity: 0;
+	}
 
-    .project-card:hover .project-video-container {
-        opacity: 1;
-    }
+	.project-card:hover .project-video-container {
+		opacity: 1;
+	}
 
-    .project-video {
-        transform: scale(1.2);
-    }
+	.project-video {
+		transform: scale(1.2);
+	}
 </style>
 
 <script>
-    // Lazy load videos on hover
-    document.addEventListener("DOMContentLoaded", () => {
-        const cards = document.querySelectorAll(".project-card");
+	// Lazy load videos on hover
+	document.addEventListener("DOMContentLoaded", () => {
+		const cards = document.querySelectorAll(".project-card");
 
-        cards.forEach((card) => {
-            let loaded = false;
+		cards.forEach((card) => {
+			let loaded = false;
 
-            card.addEventListener("mouseenter", () => {
-                if (!loaded) {
-                    const iframe = card.querySelector(
-                        ".project-video",
-                    ) as HTMLIFrameElement;
-                    if (iframe && iframe.dataset.src) {
-                        iframe.src = iframe.dataset.src;
-                        loaded = true;
-                    }
-                }
-            });
-        });
-    });
+			card.addEventListener("mouseenter", () => {
+				if (!loaded) {
+					const iframe = card.querySelector(".project-video") as HTMLIFrameElement;
+					if (iframe && iframe.dataset.src) {
+						iframe.src = iframe.dataset.src;
+						loaded = true;
+					}
+				}
+			});
+		});
+	});
 </script>
