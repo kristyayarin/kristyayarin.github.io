@@ -1,8 +1,8 @@
 ---
-title: "Character Animation Demo"
+title: "Bamboo Fountain"
 description: "Character animation and rigging demo showcasing walk cycles, combat animations, and facial expressions for game characters."
-coverImage: "/images/projects/project-3-cover.jpg"
-videoUrl: "https://vimeo.com/example3"
+coverImage: "/images/projects/BambooFountain-cover.jpg"
+videoUrl: "https://vimeo.com/536592962"
 tags: ["Character Animation", "Rigging", "Maya"]
 date: 2024-04-10
 featured: false
