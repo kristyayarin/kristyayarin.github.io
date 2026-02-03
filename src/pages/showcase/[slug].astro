@@ -34,8 +34,8 @@ const vimeoId = getVimeoId(project.data.videoUrl);
 		<article class="container mx-auto px-6">
 			<!-- Back button -->
 			<a
-				href="/portfolio"
-				class="group mb-8 inline-flex items-center text-gray-400 transition-colors hover:text-purple-400"
+				href="/showcase"
+				class="group mb-8 inline-flex items-center text-gray-500 transition-colors hover:text-gray-900"
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -48,13 +48,11 @@ const vimeoId = getVimeoId(project.data.videoUrl);
 						d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
 						clip-rule="evenodd"></path>
 				</svg>
-				Back to Portfolio
+				Back to Showcase
 			</a>
 
 			<!-- Video Player -->
-			<div
-				class="mb-8 aspect-video overflow-hidden rounded-2xl bg-gray-800 shadow-2xl shadow-purple-500/10"
-			>
+			<div class="mb-8 aspect-video overflow-hidden rounded-2xl bg-gray-100 shadow-2xl">
 				{
 					vimeoId ? (
 						<iframe
@@ -74,10 +72,10 @@ const vimeoId = getVimeoId(project.data.videoUrl);
 
 			<!-- Project Header -->
 			<header class="mb-12">
-				<h1 class="mb-4 text-4xl font-bold md:text-5xl">
+				<h1 class="mb-4 text-4xl font-bold text-gray-900 md:text-5xl">
 					{project.data.title}
 				</h1>
-				<p class="mb-6 text-xl text-gray-400">
+				<p class="mb-6 text-xl text-gray-600">
 					{project.data.description}
 				</p>
 
@@ -85,12 +83,9 @@ const vimeoId = getVimeoId(project.data.videoUrl);
 				<div class="flex flex-wrap gap-3">
 					{
 						project.data.tags.map((tag) => (
-							<a
-								href={`/tags/${tag.toLowerCase().replace(/\s+/g, "-")}`}
-								class="rounded-full bg-purple-600/20 px-4 py-2 text-sm font-medium text-purple-400 transition-colors hover:bg-purple-600/40"
-							>
+							<span class="rounded-full bg-gray-200 px-4 py-2 text-sm font-medium text-gray-700">
 								{tag}
-							</a>
+							</span>
 						))
 					}
 				</div>
@@ -107,19 +102,19 @@ const vimeoId = getVimeoId(project.data.videoUrl);
 			</header>
 
 			<!-- Project Content -->
-			<div class="prose prose-invert prose-lg mb-16 max-w-none">
+			<div class="prose prose-lg mb-16 max-w-none">
 				<Content />
 			</div>
 
 			<!-- Related Projects -->
 			{
 				relatedProjects.length > 0 && (
-					<section class="border-t border-gray-800 pt-16">
-						<h2 class="mb-8 text-2xl font-bold">Related Projects</h2>
+					<section class="border-t border-gray-200 pt-16">
+						<h2 class="mb-8 text-2xl font-bold text-gray-900">Related Projects</h2>
 						<div class="grid grid-cols-1 gap-6 md:grid-cols-3">
 							{relatedProjects.map((related) => (
-								<a href={`/portfolio/${related.slug}`} class="group block">
-									<div class="overflow-hidden rounded-xl bg-gray-800 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10">
+								<a href={`/showcase/${related.slug}`} class="group block">
+									<div class="overflow-hidden rounded-xl bg-gray-100 transition-all duration-300 hover:shadow-lg">
 										<div class="relative aspect-video overflow-hidden">
 											<img
 												src={related.data.coverImage}
@@ -128,7 +123,7 @@ const vimeoId = getVimeoId(project.data.videoUrl);
 											/>
 										</div>
 										<div class="p-4">
-											<h3 class="font-bold transition-colors group-hover:text-purple-400">
+											<h3 class="font-bold text-gray-900 transition-colors group-hover:text-gray-600">
 												{related.data.title}
 											</h3>
 										</div>
@@ -148,20 +143,20 @@ const vimeoId = getVimeoId(project.data.videoUrl);
 	.prose h2 {
 		font-size: 1.5rem;
 		font-weight: 700;
-		color: #fff;
+		color: #111827;
 		margin-top: 2rem;
 		margin-bottom: 1rem;
 	}
 
 	.prose p {
-		color: #d1d5db;
+		color: #374151;
 		margin-bottom: 1rem;
 	}
 
 	.prose ul {
 		list-style-type: disc;
 		list-style-position: inside;
-		color: #d1d5db;
+		color: #374151;
 		margin-bottom: 1rem;
 	}
 
@@ -170,6 +165,6 @@ const vimeoId = getVimeoId(project.data.videoUrl);
 	}
 
 	.prose strong {
-		color: #fff;
+		color: #111827;
 	}
 </style>

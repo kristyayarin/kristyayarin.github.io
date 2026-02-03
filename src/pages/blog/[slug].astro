@@ -1,0 +1,179 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+	const posts = await getCollection("blog");
+	return posts.map((post) => ({
+		params: { slug: post.slug },
+		props: { post },
+	}));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+// Get related posts (same tags)
+const allPosts = await getCollection("blog");
+const relatedPosts = allPosts
+	.filter((p) => p.slug !== post.slug)
+	.filter((p) => p.data.tags.some((tag) => post.data.tags.includes(tag)))
+	.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+	.slice(0, 3);
+---
+
+<Layout title={`${post.data.title} | Blog - Kristy Wong`}>
+	<main class="pt-24 pb-16">
+		<article class="container mx-auto max-w-4xl px-6">
+			<!-- Back button -->
+			<a
+				href="/blog"
+				class="group mb-8 inline-flex items-center text-gray-500 transition-colors hover:text-gray-900"
+			>
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					class="mr-2 h-5 w-5 transform transition-transform group-hover:-translate-x-1"
+					viewBox="0 0 20 20"
+					fill="currentColor"
+				>
+					<path
+						fill-rule="evenodd"
+						d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+						clip-rule="evenodd"></path>
+				</svg>
+				Back to Blog
+			</a>
+
+			<!-- Post Header -->
+			<header class="mb-12">
+				<div class="mb-4 flex flex-wrap gap-2">
+					{
+						post.data.tags.map((tag) => (
+							<span class="rounded-full bg-gray-200 px-3 py-1 text-sm font-medium text-gray-700">
+								{tag}
+							</span>
+						))
+					}
+				</div>
+				<h1 class="mb-4 text-4xl font-bold text-gray-900 md:text-5xl">
+					{post.data.title}
+				</h1>
+				<p class="mb-6 text-xl text-gray-600">
+					{post.data.description}
+				</p>
+				<div class="flex items-center gap-4 text-gray-500">
+					<span>{post.data.author}</span>
+					<span>•</span>
+					<time>
+						{
+							post.data.date.toLocaleDateString("en-US", {
+								year: "numeric",
+								month: "long",
+								day: "numeric",
+							})
+						}
+					</time>
+				</div>
+			</header>
+
+			<!-- Cover Image -->
+			{
+				post.data.coverImage && (
+					<div class="mb-12 overflow-hidden rounded-2xl">
+						<img
+							src={post.data.coverImage}
+							alt={post.data.title}
+							class="h-auto w-full"
+						/>
+					</div>
+				)
+			}
+
+			<!-- Post Content -->
+			<div class="prose prose-lg mb-16 max-w-none">
+				<Content />
+			</div>
+
+			<!-- Related Posts -->
+			{
+				relatedPosts.length > 0 && (
+					<section class="border-t border-gray-200 pt-16">
+						<h2 class="mb-8 text-2xl font-bold text-gray-900">Related Posts</h2>
+						<div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+							{relatedPosts.map((related) => (
+								<a href={`/blog/${related.slug}`} class="group block">
+									<div class="overflow-hidden rounded-xl border border-gray-200 bg-white transition-all duration-300 hover:shadow-lg">
+										<div class="p-6">
+											<div class="mb-3 flex flex-wrap gap-2">
+												{related.data.tags.slice(0, 2).map((tag) => (
+													<span class="rounded-full bg-gray-200 px-2 py-1 text-xs text-gray-700">
+														{tag}
+													</span>
+												))}
+											</div>
+											<h3 class="font-bold text-gray-900 transition-colors group-hover:text-gray-600">
+												{related.data.title}
+											</h3>
+										</div>
+									</div>
+								</a>
+							))}
+						</div>
+					</section>
+				)
+			}
+		</article>
+	</main>
+</Layout>
+
+<style>
+	/* Prose styling for markdown content */
+	.prose h1,
+	.prose h2,
+	.prose h3 {
+		color: #111827;
+	}
+
+	.prose h2 {
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-top: 2rem;
+		margin-bottom: 1rem;
+	}
+
+	.prose h3 {
+		font-size: 1.25rem;
+		font-weight: 600;
+		margin-top: 1.5rem;
+		margin-bottom: 0.75rem;
+	}
+
+	.prose p {
+		color: #374151;
+		margin-bottom: 1rem;
+	}
+
+	.prose ul,
+	.prose ol {
+		color: #374151;
+		margin-bottom: 1rem;
+		padding-left: 1.5rem;
+	}
+
+	.prose li {
+		margin-bottom: 0.5rem;
+	}
+
+	.prose strong {
+		color: #111827;
+	}
+
+	.prose a {
+		color: #374151;
+		text-decoration: underline;
+	}
+
+	.prose a:hover {
+		color: #111827;
+	}
+</style>

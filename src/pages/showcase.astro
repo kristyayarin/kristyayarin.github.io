@@ -1,0 +1,80 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { getCollection } from "astro:content";
+
+// Get all projects
+const allProjects = await getCollection("projects");
+const sortedProjects = allProjects.sort((a, b) => a.data.order - b.data.order);
+---
+
+<Layout title="Showcase | Kristy Wong - VFX Artist">
+	<main class="min-h-screen pt-24 pb-16">
+		<div class="container mx-auto px-6">
+			<!-- Page Header -->
+			<div class="mb-8">
+				<h1 class="mb-4 text-5xl font-bold text-gray-900">
+					My <span class="text-gray-600">Showcase</span>
+				</h1>
+				<p class="max-w-2xl text-xl text-gray-600">
+					Explore my collection of VFX and animation projects.
+				</p>
+			</div>
+
+			<!-- Showcase Grid - minimal gaps -->
+			<div class="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
+				{
+					sortedProjects.map((project) => (
+						<div>
+							<ProjectCard
+								title={project.data.title}
+								description={project.data.description}
+								coverImage={project.data.coverImage}
+								videoUrl={project.data.videoUrl}
+								tags={project.data.tags}
+								slug={project.slug}
+							/>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	/* Stagger animation for grid items */
+	div[class*="grid"] > div {
+		animation: fadeInUp 0.6s ease forwards;
+	}
+
+	div[class*="grid"] > div:nth-child(1) {
+		animation-delay: 0.1s;
+	}
+	div[class*="grid"] > div:nth-child(2) {
+		animation-delay: 0.2s;
+	}
+	div[class*="grid"] > div:nth-child(3) {
+		animation-delay: 0.3s;
+	}
+	div[class*="grid"] > div:nth-child(4) {
+		animation-delay: 0.4s;
+	}
+	div[class*="grid"] > div:nth-child(5) {
+		animation-delay: 0.5s;
+	}
+	div[class*="grid"] > div:nth-child(6) {
+		animation-delay: 0.6s;
+	}
+
+	@keyframes fadeInUp {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+</style>
