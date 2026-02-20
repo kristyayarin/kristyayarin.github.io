@@ -2,7 +2,7 @@ import instagramIcon from "./assets/icons/instagram.svg";
 import linkedinIcon from "./assets/icons/linkedin.svg";
 import githubIcon from "./assets/icons/github.svg";
 
-export const SITE_TITLE = "Kristy Wong - VFX Artist Portfolio";
+export const SITE_TITLE = "Xuan(Kristy) Huang - VFX Artist Portfolio";
 export const SITE_DESCRIPTION = "";
 
 export const FooterLinks = [
