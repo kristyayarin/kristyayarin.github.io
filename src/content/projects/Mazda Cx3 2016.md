@@ -1,8 +1,8 @@
 ---
-title: "Fluid Simulation VFX"
+title: "Mazda Cx3 2016"
 description: "A dynamic fluid simulation project showcasing realistic water and liquid dynamics using Houdini. This project demonstrates advanced particle systems and fluid solvers for cinematic visual effects."
-coverImage: "/images/projects/project-1-cover.jpg"
-videoUrl: "https://vimeo.com/1082394850"
+coverImage: "/images/projects/MazdaCx3-cover.png"
+videoUrl: "https://vimeo.com/392343536"
 tags: ["Fluid Dynamics", "Houdini", "Simulation"]
 date: 2024-08-15
 featured: true

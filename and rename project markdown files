@@ -1,0 +1,33 @@
+[33m4235263[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/update-02192026[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/feature/update-02192026[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{0}: checkout: moving from main to feature/update-02192026
+[33m4235263[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/update-02192026[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/feature/update-02192026[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m HEAD@{1}: pull origin main: Fast-forward
+[33mab7907f[m HEAD@{2}: checkout: moving from feature/theme-color-white-blog-section to main
+[33m17b1496[m[33m ([m[1;31morigin/feature/theme-color-white-blog-section[m[33m, [m[1;32mfeature/theme-color-white-blog-section[m[33m)[m HEAD@{3}: commit: feat: added blog and demo reel section; cleaned up portoflio section and renamed to showcase; changed theme color to white
+[33mab7907f[m HEAD@{4}: checkout: moving from main to feature/theme-color-white-blog-section
+[33mab7907f[m HEAD@{5}: pull origin: Fast-forward
+[33m527bc52[m[33m ([m[1;32mbamboo-project[m[33m)[m HEAD@{6}: checkout: moving from bamboo-project-take-2 to main
+[33m2dbce64[m[33m ([m[1;31morigin/bamboo-project-take-2[m[33m, [m[1;32mbamboo-project-take-2[m[33m)[m HEAD@{7}: reset: moving to HEAD
+[33m2dbce64[m[33m ([m[1;31morigin/bamboo-project-take-2[m[33m, [m[1;32mbamboo-project-take-2[m[33m)[m HEAD@{8}: commit: update bamboo project description
+[33m07bdbff[m HEAD@{9}: commit: added new bamboo project; updated bamboo project cover
+[33m527bc52[m[33m ([m[1;32mbamboo-project[m[33m)[m HEAD@{10}: checkout: moving from bamboo-project to bamboo-project-take-2
+[33m527bc52[m[33m ([m[1;32mbamboo-project[m[33m)[m HEAD@{11}: checkout: moving from main to bamboo-project
+[33m527bc52[m[33m ([m[1;32mbamboo-project[m[33m)[m HEAD@{12}: reset: moving to HEAD
+[33m527bc52[m[33m ([m[1;32mbamboo-project[m[33m)[m HEAD@{13}: pull origin: Fast-forward
+[33m40c98e7[m HEAD@{14}: checkout: moving from feature/update-icons to main
+[33m6cdd2fa[m[33m ([m[1;31morigin/feature/update-icons[m[33m, [m[1;32mfeature/update-icons[m[33m)[m HEAD@{15}: commit: update the contact email
+[33m23ded78[m HEAD@{16}: commit: fix: removed the duplicated footer in tags page
+[33m305bb47[m HEAD@{17}: commit: feat: updated the icons in the header and browser tab link
+[33m40c98e7[m HEAD@{18}: checkout: moving from main to feature/update-icons
+[33m40c98e7[m HEAD@{19}: pull origin: Fast-forward
+[33me3da28e[m HEAD@{20}: reset: moving to HEAD
+[33me3da28e[m HEAD@{21}: checkout: moving from fix/quick-fix-on-astro-path to main
+[33md7a89a8[m[33m ([m[1;31morigin/fix/quick-fix-on-astro-path[m[33m, [m[1;32mfix/quick-fix-on-astro-path[m[33m)[m HEAD@{22}: commit: fix: fixed the layout header padding and duplicated footer issue during rebase
+[33meb268c9[m HEAD@{23}: checkout: moving from main to fix/quick-fix-on-astro-path
+[33me3da28e[m HEAD@{24}: pull origin: Fast-forward
+[33m29a7618[m HEAD@{25}: checkout: moving from fix/quick-fix-on-astro-path to main
+[33meb268c9[m HEAD@{26}: commit: n npm run build
+[33m29a7618[m HEAD@{27}: checkout: moving from main to fix/quick-fix-on-astro-path
+[33m29a7618[m HEAD@{28}: pull origin: Fast-forward
+[33mae172a2[m HEAD@{29}: checkout: moving from feature/portfolio-footage to main
+[33m8d025fa[m[33m ([m[1;31morigin/feature/portfolio-footage[m[33m, [m[1;32mfeature/portfolio-footage[m[33m)[m HEAD@{30}: commit (merge): Merge remote-tracking branch 'origin/main' into feature/portfolio-footage
+[33m7d0fff5[m HEAD@{31}: checkout: moving from main to feature/portfolio-footage
+[33mae172a2[m HEAD@{32}: clone: from github.com:kristyayarin/kristyayarin.github.io.git

@@ -1,8 +1,8 @@
 ---
-title: "Particle Effects Reel"
+title: "The Changeling"
 description: "A collection of particle-based visual effects including explosions, magic spells, and environmental effects created for various game and film projects."
-coverImage: "/images/projects/project-2-cover.jpg"
-videoUrl: "https://vimeo.com/example2"
+coverImage: "/images/projects/The Changeling.png"
+videoUrl: "https://vimeo.com/1166549043"
 tags: ["Particles", "Visual Effects", "Unreal Engine"]
 date: 2024-06-20
 featured: false

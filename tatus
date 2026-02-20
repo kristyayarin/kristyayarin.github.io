@@ -1,0 +1,69 @@
+*   [33m4235263[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/update-02192026[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/feature/update-02192026[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m Merge pull request #10 from kristyayarin/feature/theme-color-white-blog-section
+[31m|[m[32m\[m  
+[31m|[m * [33m17b1496[m[33m ([m[1;31morigin/feature/theme-color-white-blog-section[m[33m, [m[1;32mfeature/theme-color-white-blog-section[m[33m)[m feat: added blog and demo reel section; cleaned up portoflio section and renamed to showcase; changed theme color to white
+[31m|[m[31m/[m  
+*   [33mab7907f[m Merge pull request #9 from kristyayarin/bamboo-project-take-2
+[33m|[m[34m\[m  
+[33m|[m * [33m2dbce64[m[33m ([m[1;31morigin/bamboo-project-take-2[m[33m, [m[1;32mbamboo-project-take-2[m[33m)[m update bamboo project description
+[33m|[m * [33m07bdbff[m added new bamboo project; updated bamboo project cover
+[33m|[m[33m/[m  
+*   [33m527bc52[m[33m ([m[1;32mbamboo-project[m[33m)[m Merge pull request #8 from kristyayarin/feature/update-icons
+[35m|[m[36m\[m  
+[35m|[m * [33m6cdd2fa[m[33m ([m[1;31morigin/feature/update-icons[m[33m, [m[1;32mfeature/update-icons[m[33m)[m update the contact email
+[35m|[m * [33m23ded78[m fix: removed the duplicated footer in tags page
+[35m|[m * [33m305bb47[m feat: updated the icons in the header and browser tab link
+[35m|[m[35m/[m  
+*   [33m40c98e7[m Merge pull request #7 from kristyayarin/fix/quick-fix-on-astro-path
+[1;31m|[m[1;32m\[m  
+[1;31m|[m * [33md7a89a8[m[33m ([m[1;31morigin/fix/quick-fix-on-astro-path[m[33m, [m[1;32mfix/quick-fix-on-astro-path[m[33m)[m fix: fixed the layout header padding and duplicated footer issue during rebase
+* [1;32m|[m [33me3da28e[m Merge pull request #6 from kristyayarin/fix/quick-fix-on-astro-path
+[1;33m|[m[1;32m\[m[1;32m|[m 
+[1;33m|[m * [33meb268c9[m n npm run build
+[1;33m|[m[1;33m/[m  
+*   [33m29a7618[m Merge pull request #5 from kristyayarin/feature/portfolio-footage
+[1;35m|[m[1;36m\[m  
+[1;35m|[m *   [33m8d025fa[m[33m ([m[1;31morigin/feature/portfolio-footage[m[33m, [m[1;32mfeature/portfolio-footage[m[33m)[m Merge remote-tracking branch 'origin/main' into feature/portfolio-footage
+[1;35m|[m [31m|[m[1;35m\[m  
+[1;35m|[m [31m|[m[1;35m/[m  
+[1;35m|[m[1;35m/[m[31m|[m   
+* [31m|[m   [33mae172a2[m Merge pull request #4 from kristyayarin/feature/refine-prototype-to-first-version
+[33m|[m[34m\[m [31m\[m  
+* [34m\[m [31m\[m   [33m5bb5168[m Merge pull request #3 from kristyayarin/feature/portfolio-footage
+[35m|[m[36m\[m [34m\[m [31m\[m  
+[35m|[m [36m|[m [34m|[m * [33m7d0fff5[m feat: theme color purple
+[35m|[m [36m|[m [34m|[m * [33m2aa1ea6[m feat: added new sections home page, updated header
+[35m|[m [36m|[m [34m|[m[36m/[m  
+[35m|[m [36m|[m[36m/[m[34m|[m   
+[35m|[m * [34m|[m [33m8b13037[m uploaded pro logo
+[35m|[m[35m/[m [34m/[m  
+* [34m|[m   [33m5c411d0[m Merge pull request #2 from kristyayarin/feature/refine-prototype-to-first-version
+[1;31m|[m[1;32m\[m [34m\[m  
+* [1;32m\[m [34m\[m   [33m20814d8[m Merge pull request #1 from kristyayarin/feature/refine-prototype-to-first-version
+[1;33m|[m[1;34m\[m [1;32m\[m [34m\[m  
+[1;33m|[m [1;34m|[m [1;32m|[m [34m|[m * [33m54385ec[m[33m ([m[1;31morigin/feature/refine-prototype-to-first-version[m[33m)[m chore(github-action): fixed the github action workflow
+[1;33m|[m [1;34m|[m [1;32m|[m [34m|[m * [33m1f4edd5[m chore: reverted github action workflow
+[1;33m|[m [1;34m|[m [1;32m|[m [34m|[m[34m/[m  
+[1;33m|[m [1;34m|[m [1;32m|[m * [33m7353f2d[m chore(github-action): remove deploy on PR
+[1;33m|[m [1;34m|[m [1;32m|[m * [33m42ef7ef[m refactor: ran the prettier
+[1;33m|[m [1;34m|[m [1;32m|[m * [33me026ef5[m chore: added prettier and eslint for astro and tailwindcss
+[1;33m|[m [1;34m|[m [1;32m|[m * [33m62a3933[m chore: added prettier and eslint for astro and tailwindcss
+[1;33m|[m [1;34m|[m [1;32m|[m * [33mb702523[m feat(card): added card components
+[1;33m|[m [1;34m|[m [1;32m|[m * [33m1204280[m feat(card): added card components
+[1;33m|[m [1;34m|[m [1;32m|[m * [33mbcc1a69[m feat(pagination): added pagination component
+[1;33m|[m [1;34m|[m [1;32m|[m * [33md5203ba[m feat(component): added optimized image and formatted date components
+[1;33m|[m [1;34m|[m [1;32m|[m * [33m650e882[m feat(layout): adjusted layout; udpated npm packages
+[1;33m|[m [1;34m|[m [1;32m|[m * [33m57678e3[m chore: fixed the auto-deploy job running condition
+[1;33m|[m [1;34m|[m [1;32m|[m[1;32m/[m  
+[1;33m|[m [1;34m|[m * [33m6a846ce[m chore: fixed the auto-deploy job running condition
+[1;33m|[m [1;34m|[m * [33mc93b206[m chore(gh-action): updated deployment workflow
+[1;33m|[m [1;34m|[m[1;34m/[m  
+[1;33m|[m * [33m82f05f1[m refactor: fixed the footer
+[1;33m|[m * [33m1de9d71[m feat(footer): improved the footer and fixed the svg file
+[1;33m|[m[1;33m/[m  
+* [33m0b3a1e9[m doc: updated readme file
+* [33m9c8068b[m fix: fix the github action deploy workflow
+* [33ma84e87c[m fix: fix the github action deploy workflow
+* [33m9818c92[m feat: build up a new portfolio with astro and tailwind css
+* [33mef6786b[m refactor: reverted all the astro changes
+* [33mde2c64c[m Setup GitHub Pages deployment
+* [33m77ca03d[m Initial commit
