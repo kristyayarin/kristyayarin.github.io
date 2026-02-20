@@ -140,7 +140,7 @@ const vimeoId = getVimeoId(project.data.videoUrl);
 
 <style>
 	/* Prose styling for markdown content */
-	.prose h2 {
+	:global(.prose h2) {
 		font-size: 1.5rem;
 		font-weight: 700;
 		color: #111827;
@@ -148,23 +148,23 @@ const vimeoId = getVimeoId(project.data.videoUrl);
 		margin-bottom: 1rem;
 	}
 
-	.prose p {
+	:global(.prose p) {
 		color: #374151;
 		margin-bottom: 1rem;
 	}
 
-	.prose ul {
+	:global(.prose ul) {
 		list-style-type: disc;
 		list-style-position: inside;
 		color: #374151;
 		margin-bottom: 1rem;
 	}
 
-	.prose li {
+	:global(.prose li) {
 		margin-bottom: 0.5rem;
 	}
 
-	.prose strong {
+	:global(.prose strong) {
 		color: #111827;
 	}
 </style>

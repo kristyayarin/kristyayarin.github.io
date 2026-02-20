@@ -6,7 +6,7 @@ videoUrl: "https://vimeo.com/536592962"
 tags: ["Character Animation", "Rigging", "Maya"]
 date: 2024-04-10
 featured: false
-order: 3
+order: 2
 ---
 
 ## Project Overview
