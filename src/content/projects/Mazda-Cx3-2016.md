@@ -6,7 +6,7 @@ videoUrl: "https://vimeo.com/392343536"
 tags: ["Fluid Dynamics", "Houdini", "Simulation"]
 date: 2024-08-15
 featured: true
-order: 1
+order: 3
 ---
 
 ## Project Overview
