@@ -1,7 +1,7 @@
 ---
 title: "The Diplomat"
 description: "Multi-layer compositing breakdown showing the integration of CGI elements into live-action footage with detailed match-moving and color grading."
-coverImage: "images/projects/TheDiplomat-cover.png"
+coverImage: "/images/projects/TheDiplomat-cover.png"
 videoUrl: "https://vimeo.com/1166795388"
 tags: ["Houdini", "Visual Effects"]
 date: 2023-11-20
