@@ -21,3 +21,4 @@ A demonstration of character animation skills including locomotion, combat, and 
 ## My Role
 
 Animator and rigger for all character work.
+
