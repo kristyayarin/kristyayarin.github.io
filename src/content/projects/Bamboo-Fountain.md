@@ -5,8 +5,8 @@ coverImage: "/images/projects/BambooFountain-cover.jpg"
 videoUrl: "https://vimeo.com/536592962"
 tags: ["Character Animation", "Rigging", "Maya"]
 date: 2024-04-10
-featured: false
-order: 2
+featured: true
+order: 3
 ---
 
 ## Project Overview
@@ -21,3 +21,4 @@ A demonstration of character animation skills including locomotion, combat, and 
 ## My Role
 
 Animator and rigger for all character work.
+

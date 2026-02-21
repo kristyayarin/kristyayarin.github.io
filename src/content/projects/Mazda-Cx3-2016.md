@@ -5,8 +5,8 @@ coverImage: "/images/projects/MazdaCx3-cover.png"
 videoUrl: "https://vimeo.com/392343536"
 tags: ["Fluid Dynamics", "Houdini", "Simulation"]
 date: 2024-08-15
-featured: true
-order: 3
+featured: false
+order: 4git status
 ---
 
 ## Project Overview
