@@ -5,7 +5,7 @@ coverImage: "/images/projects/TheChangeling-cover.png"
 videoUrl: "https://vimeo.com/1166549043"
 tags: ["Particles", "Visual Effects", "Houdini"]
 date: 2024-06-20
-featured: false
+featured: true
 order: 1
 ---
 

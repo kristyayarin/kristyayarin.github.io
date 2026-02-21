@@ -6,10 +6,7 @@ import { getCollection } from 'astro:content';
 const allProjects = await getCollection('projects');
 const featuredProjects = allProjects
   .filter(project => project.data.featured)
-  .sort((a, b) => a.data.order - b.data.order);
-const recentProjects = allProjects
-  .sort((a, b) => a.data.order - b.data.order)
-  .slice(0, 3);
+  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
 
 // Hero video - Vimeo ID
 const heroVimeoId = '1166559683';
@@ -72,7 +69,7 @@ const heroVimeoId = '1166559683';
         </p>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {recentProjects.map(project => (
+          {featuredProjects.map(project => (
             <a href={`/showcase/${project.slug}`} class="group block">
               <div class="bg-white rounded-xl overflow-hidden transition-all duration-500 hover:transform hover:scale-[1.02] hover:shadow-2xl border border-gray-200">
                 <div class="aspect-video relative overflow-hidden">
