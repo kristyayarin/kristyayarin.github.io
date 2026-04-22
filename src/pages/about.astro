@@ -4,200 +4,367 @@ import Layout from "../layouts/Layout.astro";
 
 <Layout title="About | Xuan(Kristy) Huang - VFX Artist">
 	<main class="pt-24 pb-16">
-		<div class="container mx-auto px-6">
-			<div class="flex flex-col items-start gap-12 md:flex-row">
-				<!-- Profile Image -->
-				<div class="w-full md:w-1/3">
-					<div class="group relative aspect-[3/4] overflow-hidden rounded-2xl shadow-2xl">
-						<div
-							class="absolute inset-0 bg-gray-200/20 transition-all duration-500 group-hover:bg-transparent"
-						>
-						</div>
-						<!-- Placeholder for profile image -->
-						<div class="flex h-full w-full items-center justify-center bg-gray-100">
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								class="h-24 w-24 text-gray-400"
-								fill="none"
-								viewBox="0 0 24 24"
-								stroke="currentColor"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="1"
-									d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-								></path>
-							</svg>
-						</div>
-					</div>
+		<div class="container mx-auto px-6 max-w-6xl">
 
-					<div class="mt-8 rounded-xl bg-gray-100 p-6">
-						<h3 class="mb-4 text-xl font-bold text-gray-900">Skills</h3>
-						<div class="space-y-4">
-							<div>
-								<div class="mb-1 flex justify-between">
-									<span class="text-gray-700">3D Animation</span>
-									<span class="text-gray-500">95%</span>
-								</div>
-								<div class="h-2 w-full rounded-full bg-gray-200">
-									<div class="h-2 rounded-full bg-gray-800" style="width: 95%">
-									</div>
-								</div>
-							</div>
+			<!-- Page Header -->
+			<div class="mb-12">
+				<h1 class="text-5xl font-bold text-gray-900 mb-2">
+					Xuan <span class="text-gray-500">(Kristy)</span> Huang
+				</h1>
+				<p class="text-xl text-gray-600 mb-4">FX Artist · 3D Generalist · VFX Supervisor · Freelancer</p>
+				<div class="flex flex-wrap gap-4 text-sm text-gray-500">
+					<span class="flex items-center gap-1">
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+						New York, NY
+					</span>
 
-							<div>
-								<div class="mb-1 flex justify-between">
-									<span class="text-gray-700">Visual Effects</span>
-									<span class="text-gray-500">90%</span>
-								</div>
-								<div class="h-2 w-full rounded-full bg-gray-200">
-									<div class="h-2 rounded-full bg-gray-800" style="width: 90%">
-									</div>
-								</div>
-							</div>
-
-							<div>
-								<div class="mb-1 flex justify-between">
-									<span class="text-gray-700">Compositing</span>
-									<span class="text-gray-500">85%</span>
-								</div>
-								<div class="h-2 w-full rounded-full bg-gray-200">
-									<div class="h-2 rounded-full bg-gray-800" style="width: 85%">
-									</div>
-								</div>
-							</div>
-
-							<div>
-								<div class="mb-1 flex justify-between">
-									<span class="text-gray-700">Motion Graphics</span>
-									<span class="text-gray-500">80%</span>
-								</div>
-								<div class="h-2 w-full rounded-full bg-gray-200">
-									<div class="h-2 rounded-full bg-gray-800" style="width: 80%">
-									</div>
-								</div>
-							</div>
-
-							<div>
-								<div class="mb-1 flex justify-between">
-									<span class="text-gray-700">Rigging</span>
-									<span class="text-gray-500">75%</span>
-								</div>
-								<div class="h-2 w-full rounded-full bg-gray-200">
-									<div class="h-2 rounded-full bg-gray-800" style="width: 75%">
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					<a href="mailto:kristy_xhuang@outlook.com" class="flex items-center gap-1 hover:text-gray-800 transition-colors">
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+						kristy_xhuang@outlook.com
+					</a>
 				</div>
+			</div>
 
-				<!-- About Content -->
-				<div class="lg:col-span-3">
-					<div class="prose max-w-none">
-						<h2>My Story</h2>
-						<p>
-							Hi, I'm Xuan(Kristy) Huang, a passionate VFX artist with expertise in creating
-							stunning visual effects and animations. With over [X] years of
-							experience in the industry, I've had the privilege of working on a
-							variety of exciting projects across film, television, and digital media.
-						</p>
+			<div class="flex flex-col gap-12 lg:flex-row lg:items-start">
 
-						<p>
-							My journey began with a fascination for blending art and technology to
-							create immersive visual experiences. I graduated from [Your
-							University/School] with a degree in [Your Degree], which provided me
-							with a strong foundation in both technical skills and creative
-							storytelling.
-						</p>
+				<!-- Sidebar -->
+				<aside class="w-full lg:w-72 shrink-0 space-y-8">
 
-						<h2 class="mt-8">Experience</h2>
-						<p>
-							Throughout my career, I've collaborated with talented teams on projects
-							ranging from blockbuster films to innovative digital campaigns. My
-							expertise includes [list your specific expertise areas like particle
-							simulations, fluid dynamics, character animation, etc.].
-						</p>
 
-						<p>
-							I've worked with leading studios such as [Studio Name] and [Studio
-							Name], contributing to projects like [Project Name] and [Project Name].
-							These experiences have honed my ability to deliver high-quality visual
-							effects that enhance storytelling and create memorable viewer
-							experiences.
-						</p>
 
-						<h2 class="mt-8">My Approach</h2>
-						<p>
-							I believe that great visual effects should seamlessly integrate with the
-							narrative, enhancing the story without overpowering it. My approach
-							combines technical precision with artistic vision, always striving to
-							push the boundaries of what's possible while maintaining a focus on the
-							emotional impact of the work.
-						</p>
+					<!-- Skills by category -->
+					<div class="rounded-xl bg-gray-50 border border-gray-200 p-6 space-y-5">
+						<h3 class="text-lg font-bold text-gray-900">Skills</h3>
 
-						<p>
-							When I'm not creating visual effects, I enjoy [mention hobbies or
-							interests that might be relevant], which continuously inspire my
-							creative process and bring fresh perspectives to my work.
-						</p>
+						<div>
+							<p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">Primary 3D</p>
+							<div class="flex flex-wrap gap-2">
+								{["Houdini", "Maya", "Cinema 4D"].map(s => (
+									<span class="rounded-full bg-gray-900 text-white px-3 py-1 text-xs font-medium">{s}</span>
+								))}
+							</div>
+						</div>
 
-						<div class="mt-8">
-							<h2>Software & Tools</h2>
-							<div class="mt-4 flex flex-wrap gap-3">
-								<span
-									class="rounded-full bg-gray-200 px-3 py-1 text-sm text-gray-700"
-									>Maya</span
-								>
-								<span
-									class="rounded-full bg-gray-200 px-3 py-1 text-sm text-gray-700"
-									>Houdini</span
-								>
-								<span
-									class="rounded-full bg-gray-200 px-3 py-1 text-sm text-gray-700"
-									>Nuke</span
-								>
-								<span
-									class="rounded-full bg-gray-200 px-3 py-1 text-sm text-gray-700"
-									>After Effects</span
-								>
-								<span
-									class="rounded-full bg-gray-200 px-3 py-1 text-sm text-gray-700"
-									>Cinema 4D</span
-								>
-								<span
-									class="rounded-full bg-gray-200 px-3 py-1 text-sm text-gray-700"
-									>ZBrush</span
-								>
-								<span
-									class="rounded-full bg-gray-200 px-3 py-1 text-sm text-gray-700"
-									>Substance Designer</span
-								>
-								<span
-									class="rounded-full bg-gray-200 px-3 py-1 text-sm text-gray-700"
-									>Unreal Engine</span
-								>
+						<div>
+							<p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">Rendering</p>
+							<div class="flex flex-wrap gap-2">
+								{["Karma", "Arnold", "Mantra", "RenderMan"].map(s => (
+									<span class="rounded-full bg-gray-200 text-gray-700 px-3 py-1 text-xs font-medium">{s}</span>
+								))}
+							</div>
+						</div>
+
+						<div>
+							<p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">Compositing</p>
+							<div class="flex flex-wrap gap-2">
+								{["Nuke", "After Effects"].map(s => (
+									<span class="rounded-full bg-gray-200 text-gray-700 px-3 py-1 text-xs font-medium">{s}</span>
+								))}
+							</div>
+						</div>
+
+						<div>
+							<p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">Real-Time</p>
+							<div class="flex flex-wrap gap-2">
+								{["Unreal Engine 4/5"].map(s => (
+									<span class="rounded-full bg-gray-200 text-gray-700 px-3 py-1 text-xs font-medium">{s}</span>
+								))}
+							</div>
+						</div>
+
+						<div>
+							<p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">Material / Texture</p>
+							<div class="flex flex-wrap gap-2">
+								{["Substance Painter", "Substance Designer"].map(s => (
+									<span class="rounded-full bg-gray-200 text-gray-700 px-3 py-1 text-xs font-medium">{s}</span>
+								))}
+							</div>
+						</div>
+
+						<div>
+							<p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">Other Software</p>
+							<div class="flex flex-wrap gap-2">
+								{["Adobe Suite", "Avid", "3ds Max", "Orad 3D Designer"].map(s => (
+									<span class="rounded-full bg-gray-200 text-gray-700 px-3 py-1 text-xs font-medium">{s}</span>
+								))}
+							</div>
+						</div>
+
+						<div>
+							<p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">Coding</p>
+							<div class="flex flex-wrap gap-2">
+								{["Python", "C++"].map(s => (
+									<span class="rounded-full bg-gray-200 text-gray-700 px-3 py-1 text-xs font-medium">{s}</span>
+								))}
+							</div>
+						</div>
+
+						<div>
+							<p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-2">On-Set</p>
+							<div class="flex flex-wrap gap-2">
+								{["VFX Supervisor", "Asst. VFX Director", "VJ"].map(s => (
+									<span class="rounded-full bg-gray-200 text-gray-700 px-3 py-1 text-xs font-medium">{s}</span>
+								))}
 							</div>
 						</div>
 					</div>
 
-					<div class="mt-12">
-						<a
-							href="/contact"
-							class="inline-block rounded-lg bg-gray-900 px-6 py-3 font-medium text-white transition hover:bg-gray-800"
-						>
+					<!-- CTA buttons -->
+					<div class="flex flex-col gap-3">
+						<a href="/contact" class="block text-center rounded-lg bg-gray-900 px-6 py-3 font-medium text-white transition hover:bg-gray-700">
 							Get In Touch
 						</a>
-						<a
-							href="/showcase"
-							class="ml-4 inline-block rounded-lg border border-gray-900 bg-transparent px-6 py-3 font-medium text-gray-900 transition hover:bg-gray-100"
-						>
+						<a href="/showcase" class="block text-center rounded-lg border border-gray-900 bg-transparent px-6 py-3 font-medium text-gray-900 transition hover:bg-gray-100">
 							View My Work
 						</a>
 					</div>
+				</aside>
+
+				<!-- Main Content -->
+				<div class="flex-1 space-y-14">
+
+					<!-- AboutMe -->
+					<section>
+						<h2 class="section-heading">About me</h2>
+						<p class="text-gray-600 leading-relaxed text-lg">
+							VFX Artist and 3D Generalist with <strong class="text-gray-900">8+ years of experience</strong> spanning broadcast motion graphics, episodic television VFX, on-set supervision, and freelance production. Specialized in fluid simulations, FX dynamics, and Houdini-driven pipelines. Credits include <strong class="text-gray-900">Netflix's The Diplomat</strong>, <strong class="text-gray-900">Apple TV+'s The Changeling</strong>, and <strong class="text-gray-900">American Horror Story</strong>. Currently working as a freelance FX artist and VFX supervisor across post-production and live event clients.
+						</p>
+					</section>
+
+					<!-- Experience -->
+					<section>
+						<h2 class="section-heading">Experience</h2>
+						<div class="space-y-10">
+
+							<!-- Freelance -->
+							<div class="experience-item">
+								<div class="experience-header">
+									<div>
+										<h3 class="text-xl font-bold text-gray-900">Freelance FX Artist & VFX Supervisor</h3>
+										<p class="text-gray-500 text-sm mt-0.5">Various Clients · New York, NY</p>
+									</div>
+									<span class="experience-date">Mar 2024 – Present</span>
+								</div>
+								<ul class="experience-list">
+									<li><strong>FotoKem</strong> — Collaborated on post-production VFX including FX simulations and on-set supervision support.</li>
+									<li><strong>InnovatorX</strong> — Created motion graphics, FX simulations, and broadcast visuals for live and digital productions.</li>
+									<li>Delivered end-to-end FX work independently: simulation, lighting, and client communication.</li>
+								</ul>
+							</div>
+
+							<!-- FuseFX -->
+							<div class="experience-item">
+								<div class="experience-header">
+									<div>
+										<h3 class="text-xl font-bold text-gray-900">FX Artist</h3>
+										<p class="text-gray-500 text-sm mt-0.5">FuseFX · New York, NY</p>
+									</div>
+									<span class="experience-date">Aug 2022 – Mar 2024</span>
+								</div>
+								<ul class="experience-list">
+									<li>Created fluid simulations, explosions, and dynamic FX for major episodic productions.</li>
+									<li>Key credits: <strong>Netflix's The Diplomat</strong> (explosion & ocean sequences), <strong>Apple TV+'s The Changeling</strong>, <em>American Horror Story</em>, <em>The Blacklist</em>.</li>
+									<li>Collaborated closely with supervisors and compositing teams to integrate FX seamlessly into live-action footage.</li>
+								</ul>
+							</div>
+
+							<!-- SideFX -->
+							<div class="experience-item">
+								<div class="experience-header">
+									<div>
+										<h3 class="text-xl font-bold text-gray-900">CG Intern</h3>
+										<p class="text-gray-500 text-sm mt-0.5">SideFX · Santa Monica, CA</p>
+									</div>
+									<span class="experience-date">Jan 2022 – Jun 2022</span>
+								</div>
+								<ul class="experience-list">
+									<li>Developed production-quality projects in Houdini for internal and client-facing demos.</li>
+									<li>Tested new Houdini features and provided detailed feedback to the development team.</li>
+								</ul>
+							</div>
+
+							<!-- SCAD TA -->
+							<div class="experience-item">
+								<div class="experience-header">
+									<div>
+										<h3 class="text-xl font-bold text-gray-900">Teaching Assistant</h3>
+										<p class="text-gray-500 text-sm mt-0.5">Savannah College of Art and Design · Savannah, GA</p>
+									</div>
+									<span class="experience-date">Mar 2021 – May 2021</span>
+								</div>
+								<ul class="experience-list">
+									<li>Supported professor with Game Environment course lectures.</li>
+									<li>Ran extra help sessions and delivered select independent lectures.</li>
+								</ul>
+							</div>
+
+							<!-- Shanghai -->
+							<div class="experience-item">
+								<div class="experience-header">
+									<div>
+										<h3 class="text-xl font-bold text-gray-900">Animator</h3>
+										<p class="text-gray-500 text-sm mt-0.5">Shanghai Yushi Network Technology · Shanghai, China</p>
+									</div>
+									<span class="experience-date">Jan 2018 – Sep 2019</span>
+								</div>
+								<ul class="experience-list">
+									<li>Produced promotional video packaging and special effects for digital campaigns.</li>
+								</ul>
+							</div>
+
+							<!-- Siyi Studio -->
+							<div class="experience-item">
+								<div class="experience-header">
+									<div>
+										<h3 class="text-xl font-bold text-gray-900">Animator & VFX Producer</h3>
+										<p class="text-gray-500 text-sm mt-0.5">Siyi Studio · Guangzhou, China</p>
+									</div>
+									<span class="experience-date">Apr 2017 – Dec 2017</span>
+								</div>
+								<ul class="experience-list">
+									<li>Produced video animations, broadcast motion graphics, and post-production for TV programs and advertising.</li>
+									<li>Credits include <em>2016 Lantern Festival Evening Program</em>, <em>Humor Observer</em>, and Ping An Group campaign.</li>
+								</ul>
+							</div>
+
+							<!-- Guangdong Jingshi -->
+							<div class="experience-item">
+								<div class="experience-header">
+									<div>
+										<h3 class="text-xl font-bold text-gray-900">Animator & VFX Producer</h3>
+										<p class="text-gray-500 text-sm mt-0.5">Guangdong Jingshi Visual Culture and Media · Guangzhou, China</p>
+									</div>
+									<span class="experience-date">Sep 2016 – Apr 2017</span>
+								</div>
+								<ul class="experience-list">
+									<li>Designed logo animations and special effects for broadcast; built AE–PR–Avid collaborative workflow.</li>
+									<li>Contributed to <em>Millions of Challenges</em> and <em>Love in the Sea Island</em>.</li>
+								</ul>
+							</div>
+
+							<!-- Guangdong Radio -->
+							<div class="experience-item">
+								<div class="experience-header">
+									<div>
+										<h3 class="text-xl font-bold text-gray-900">Animator & VFX Producer <span class="font-normal text-gray-400">(Intern)</span></h3>
+										<p class="text-gray-500 text-sm mt-0.5">Guangdong Radio and Television Station · Guangzhou, China</p>
+									</div>
+									<span class="experience-date">Jan 2013 – Sep 2016</span>
+								</div>
+								<ul class="experience-list">
+									<li>Gained foundational broadcast production experience across multiple television programs.</li>
+								</ul>
+							</div>
+
+						</div>
+					</section>
+
+					<!-- Education -->
+					<section>
+						<h2 class="section-heading">Education</h2>
+						<div class="space-y-6">
+
+							<div class="experience-item">
+								<div class="experience-header">
+									<div>
+										<h3 class="text-lg font-bold text-gray-900">Master of Fine Arts, Visual Effects</h3>
+										<p class="text-gray-500 text-sm mt-0.5">Savannah College of Art and Design · Savannah, GA</p>
+									</div>
+									<span class="experience-date">2019 – 2021</span>
+								</div>
+							</div>
+
+							<div class="experience-item">
+								<div class="experience-header">
+									<div>
+										<h3 class="text-lg font-bold text-gray-900">Bachelor of Fine Arts, Digital Media Arts</h3>
+										<p class="text-gray-500 text-sm mt-0.5">Nanfang College of Sun Yat-Sen University</p>
+									</div>
+									<span class="experience-date">2012 – 2016</span>
+								</div>
+							</div>
+
+						</div>
+					</section>
+
+					<!-- Awards -->
+					<section>
+						<h2 class="section-heading">Awards</h2>
+						<div class="space-y-6">
+
+							<div class="experience-item">
+								<div class="experience-header">
+									<div>
+										<h3 class="text-lg font-bold text-gray-900">Excellent Work Prize — B. Duck Proposition</h3>
+										<p class="text-gray-500 text-sm mt-0.5">13th Academy Awards of Chinese College Students' Advertising Art Festival</p>
+									</div>
+									<span class="experience-date">2015</span>
+								</div>
+							</div>
+
+							<div class="experience-item">
+								<div class="experience-header">
+									<div>
+										<h3 class="text-lg font-bold text-gray-900">Finalist — Multimedia Animation</h3>
+										<p class="text-gray-500 text-sm mt-0.5">5th National Crazy Creative Traffic Safety Creative Competition</p>
+									</div>
+									<span class="experience-date">2014</span>
+								</div>
+							</div>
+
+						</div>
+					</section>
+
 				</div>
 			</div>
 		</div>
 	</main>
 </Layout>
+
+<style>
+	.section-heading {
+		font-size: 1.5rem;
+		font-weight: 700;
+		color: #111827;
+		padding-bottom: 0.5rem;
+		border-bottom: 2px solid #e5e7eb;
+		margin-bottom: 1.5rem;
+	}
+
+	.experience-item {
+		padding-left: 1rem;
+		border-left: 3px solid #e5e7eb;
+		transition: border-color 0.2s;
+	}
+	.experience-item:hover {
+		border-left-color: #6b7280;
+	}
+
+	.experience-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 1rem;
+		flex-wrap: wrap;
+		margin-bottom: 0.75rem;
+	}
+
+	.experience-date {
+		font-size: 0.8rem;
+		color: #9ca3af;
+		white-space: nowrap;
+		padding-top: 0.25rem;
+	}
+
+	.experience-list {
+		list-style: disc;
+		padding-left: 1.25rem;
+		color: #4b5563;
+		font-size: 0.95rem;
+		line-height: 1.75;
+		space-y: 0.25rem;
+	}
+	.experience-list li {
+		margin-bottom: 0.25rem;
+	}
+</style>
