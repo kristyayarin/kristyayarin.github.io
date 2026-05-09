@@ -36,7 +36,8 @@ import logo from "../assets/LOGOtext.png";
 			<img src={logo.src} alt="Xuan(Kristy) Huang" class="header-logo h-8" />
 		</a>
 
-		<nav>
+		<!-- Desktop Navigation -->
+		<nav class="hidden md:block" id="desktop-nav">
 			<ul class="m-0 flex list-none items-center gap-2 p-0">
 				{
 					navLinks.map((link) => (
@@ -52,6 +53,42 @@ import logo from "../assets/LOGOtext.png";
 										: isHomePage
 											? "text-white/90 hover:bg-white/10 hover:text-white"
 											: "text-gray-600 hover:bg-gray-100 hover:text-gray-900",
+								]}
+							>
+								{link.label}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</nav>
+
+		<!-- Mobile Hamburger Button -->
+		<button
+			id="mobile-menu-btn"
+			class="hamburger-btn md:hidden"
+			aria-expanded="false"
+			aria-controls="mobile-menu"
+			aria-label="Toggle navigation menu"
+		>
+			<span class="hamburger-line line-1"></span>
+			<span class="hamburger-line line-2"></span>
+			<span class="hamburger-line line-3"></span>
+		</button>
+	</div>
+
+	<!-- Mobile Menu Panel -->
+	<div id="mobile-menu" class="mobile-menu md:hidden" aria-hidden="true">
+		<nav>
+			<ul class="m-0 flex list-none flex-col p-0">
+				{
+					navLinks.map((link) => (
+						<li class="list-none">
+							<a
+								href={link.href}
+								class:list={[
+									"mobile-nav-link block px-6 py-3 text-base font-medium transition-all duration-200",
+									isActive(link.href) ? "mobile-nav-active" : "",
 								]}
 							>
 								{link.label}
@@ -108,16 +145,218 @@ import logo from "../assets/LOGOtext.png";
 	.header-transparent .header-logo {
 		filter: brightness(0) invert(1);
 	}
+
+	/* ========================================
+	   Hamburger Button
+	   ======================================== */
+	.hamburger-btn {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 36px;
+		height: 36px;
+		padding: 0;
+		background: none;
+		border: none;
+		cursor: pointer;
+		z-index: 60;
+		border-radius: 6px;
+		transition: background 0.2s ease;
+	}
+
+	/* Hide hamburger & mobile menu on desktop (md: 768px+) */
+	@media screen and (min-width: 768px) {
+		.hamburger-btn {
+			display: none;
+		}
+		.mobile-menu {
+			display: none;
+		}
+	}
+
+	.hamburger-btn:hover {
+		background: rgba(128, 128, 128, 0.15);
+	}
+
+	.hamburger-line {
+		display: block;
+		width: 22px;
+		height: 2px;
+		border-radius: 1px;
+		transition:
+			transform 0.3s ease,
+			opacity 0.3s ease;
+	}
+
+	.line-1 {
+		transform: translateY(-4px);
+	}
+	.line-2 {
+		transform: translateY(0);
+	}
+	.line-3 {
+		transform: translateY(4px);
+	}
+
+	/* Hamburger line colors — adapt to header state */
+	.header-transparent .hamburger-line {
+		background-color: #fff;
+	}
+
+	.header-scrolled .hamburger-line,
+	#main-header:not(.header-transparent) .hamburger-line {
+		background-color: #374151;
+	}
+
+	/* Hamburger → X animation when open */
+	.hamburger-btn[aria-expanded="true"] .line-1 {
+		transform: translateY(2px) rotate(45deg);
+	}
+	.hamburger-btn[aria-expanded="true"] .line-2 {
+		opacity: 0;
+	}
+	.hamburger-btn[aria-expanded="true"] .line-3 {
+		transform: translateY(-2px) rotate(-45deg);
+	}
+
+	/* ========================================
+	   Mobile Menu Panel
+	   ======================================== */
+	.mobile-menu {
+		max-height: 0;
+		overflow: hidden;
+		transition:
+			max-height 0.35s ease,
+			opacity 0.3s ease;
+		opacity: 0;
+	}
+
+	.mobile-menu.is-open {
+		max-height: 400px;
+		opacity: 1;
+	}
+
+	/* Mobile menu styling — homepage transparent state */
+	.header-transparent .mobile-menu {
+		background: rgba(0, 0, 0, 0.85);
+		backdrop-filter: blur(16px);
+	}
+
+	.header-transparent .mobile-nav-link {
+		color: rgba(255, 255, 255, 0.85);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.header-transparent .mobile-nav-link:hover {
+		background: rgba(255, 255, 255, 0.1);
+		color: #fff;
+	}
+
+	.header-transparent .mobile-nav-active {
+		color: #fff;
+		background: rgba(255, 255, 255, 0.15);
+	}
+
+	/* Mobile menu styling — homepage scrolled state */
+	.header-scrolled .mobile-menu {
+		background: rgba(255, 255, 255, 0.98);
+		backdrop-filter: blur(16px);
+		border-top: 1px solid #e5e7eb;
+	}
+
+	.header-scrolled .mobile-nav-link {
+		color: #4b5563;
+		border-bottom: 1px solid #f3f4f6;
+	}
+
+	.header-scrolled .mobile-nav-link:hover {
+		background: #f3f4f6;
+		color: #111827;
+	}
+
+	.header-scrolled .mobile-nav-active {
+		color: #111827;
+		background: #f3f4f6;
+		font-weight: 600;
+	}
+
+	/* Mobile menu styling — non-homepage (white bg header) */
+	#main-header:not(.header-transparent):not(.header-scrolled) .mobile-menu {
+		background: rgba(255, 255, 255, 0.98);
+		backdrop-filter: blur(16px);
+		border-top: 1px solid #e5e7eb;
+	}
+
+	#main-header:not(.header-transparent):not(.header-scrolled) .mobile-nav-link {
+		color: #4b5563;
+		border-bottom: 1px solid #f3f4f6;
+	}
+
+	#main-header:not(.header-transparent):not(.header-scrolled) .mobile-nav-link:hover {
+		background: #f3f4f6;
+		color: #111827;
+	}
+
+	#main-header:not(.header-transparent):not(.header-scrolled) .mobile-nav-active {
+		color: #111827;
+		background: #f3f4f6;
+		font-weight: 600;
+	}
 </style>
 
 <script>
 	document.addEventListener("DOMContentLoaded", () => {
 		const header = document.getElementById("main-header");
 		const isHomePage = header?.getAttribute("data-is-home") === "true";
+		const menuBtn = document.getElementById("mobile-menu-btn");
+		const mobileMenu = document.getElementById("mobile-menu");
 
+		// ========================================
+		// Mobile menu toggle
+		// ========================================
+		function toggleMobileMenu() {
+			if (!menuBtn || !mobileMenu) return;
+
+			const isExpanded = menuBtn.getAttribute("aria-expanded") === "true";
+			menuBtn.setAttribute("aria-expanded", `${!isExpanded}`);
+			mobileMenu.setAttribute("aria-hidden", `${isExpanded}`);
+
+			if (!isExpanded) {
+				mobileMenu.classList.add("is-open");
+			} else {
+				mobileMenu.classList.remove("is-open");
+			}
+		}
+
+		function closeMobileMenu() {
+			if (!menuBtn || !mobileMenu) return;
+			menuBtn.setAttribute("aria-expanded", "false");
+			mobileMenu.setAttribute("aria-hidden", "true");
+			mobileMenu.classList.remove("is-open");
+		}
+
+		menuBtn?.addEventListener("click", toggleMobileMenu);
+
+		// Close menu when a mobile nav link is clicked
+		mobileMenu?.querySelectorAll(".mobile-nav-link").forEach((link) => {
+			link.addEventListener("click", closeMobileMenu);
+		});
+
+		// Close menu when window resizes past the md breakpoint (768px)
+		window.addEventListener("resize", () => {
+			if (window.innerWidth >= 768) {
+				closeMobileMenu();
+			}
+		});
+
+		// ========================================
+		// Homepage scroll-based header styling
+		// ========================================
 		if (isHomePage && header) {
-			const navLinks = header.querySelectorAll(".nav-link");
-			const activeLink = header.querySelector(".nav-link.bg-white\\/20");
+			const navLinks = header.querySelectorAll("#desktop-nav .nav-link");
+			const activeLink = header.querySelector("#desktop-nav .nav-link.bg-white\\/20");
 
 			const handleScroll = () => {
 				if (window.scrollY > 50) {
